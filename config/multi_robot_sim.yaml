@@ -32,7 +32,7 @@ sim:
 
 teleop_joy:
   ros__parameters:
-    enable_teleop_joy: true # otherwise use the teleop_twist_keyboard
+    enable_teleop_joy: false # otherwise use the teleop_twist_keyboard
     namespace: "atlas" # namespace of the robot
     joy_config: "xbox" # "xbox" or "ps3"
     joy_dev: "/dev/input/js0" # joystick device

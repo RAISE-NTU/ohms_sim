@@ -1,1 +1,1 @@
-# RAISE-HMRS-SIM
+# RAISE-NTU Heterogeneous Multi Robot System Simulator

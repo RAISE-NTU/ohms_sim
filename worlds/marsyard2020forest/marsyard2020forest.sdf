@@ -33,6 +33,12 @@
       name="ignition::gazebo::systems::Imu">
     </plugin>
 
+    <!--Comms emulator helper-->
+    <plugin 
+      name='comms_emulator_helper_system::CommsEmulatorHelper' 
+      filename='CommsEmulatorHelper'>
+    </plugin>
+
     <light name="sun" type="directional">
       <cast_shadows>true</cast_shadows>
       <pose>0 0 10 0 0 0</pose>

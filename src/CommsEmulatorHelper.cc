@@ -410,7 +410,8 @@ void CommsEmulatorHelper::PostUpdate(const gz::sim::UpdateInfo &_info,
       // emuNetworkConfig.setPER(per);
       // this->dataPtr->robotPairNetworkConfigs[name1][name2] = emuNetworkConfig;
       
-      //igndbg << "PER:" << name1 << " and " << name2 << " : " << per << std::endl;
+      
+      
       if (per > 0.08) //robotNetworkConfig.getAntennaSensitivityPER() //from IEEE 802.11 standard PER should be 8% or 10% to achieve comms
       {
         gz::msgs::Double msgPDR;
@@ -421,7 +422,7 @@ void CommsEmulatorHelper::PostUpdate(const gz::sim::UpdateInfo &_info,
             this->dataPtr->packetDropRatePublishers[name1].count(name2) > 0) 
         {
             this->dataPtr->packetDropRatePublishers[name1][name2].Publish(msgPDR);
-            //igndbg << "Publish PDR " << name1 << " and " << name2 << ": 1.0" << std::endl;
+            igndbg << "PDR " << name1 << " and " << name2 << ": 1.0" << std::endl;
             igndbg << "Comms Status:" << name1 << " and " << name2 << " : " << "COMMS NOT AVAILABLE!" << std::endl;
         }
       }
@@ -436,7 +437,7 @@ void CommsEmulatorHelper::PostUpdate(const gz::sim::UpdateInfo &_info,
             this->dataPtr->packetDropRatePublishers[name1].count(name2) > 0) 
         {
             this->dataPtr->packetDropRatePublishers[name1][name2].Publish(msgPDR);
-            //igndbg << "Publish PDR " << name1 << " and " << name2 << ": 1.0" << std::endl;
+            igndbg << "PDR " << name1 << " and " << name2 << ": 1.0" << std::endl;
             igndbg << "Comms Status:" << name1 << " and " << name2 << " : " << "COMMS AVAILABLE!" << std::endl;
         }
       }
@@ -452,14 +453,14 @@ void CommsEmulatorHelper::PostUpdate(const gz::sim::UpdateInfo &_info,
           this->dataPtr->packetErrorRatePublishers[name1].count(name2) > 0) 
       {
           this->dataPtr->packetErrorRatePublishers[name1][name2].Publish(msgPER);
-          //igndbg << "Publish PER " << name1 << " and " << name2 << ": " << per << std::endl;
+          igndbg << "PER:" << name1 << " and " << name2 << " : " << per << std::endl;
       }
 
       if (this->dataPtr->pathLossPublishers.count(name1) > 0 &&
           this->dataPtr->pathLossPublishers[name1].count(name2) > 0) 
       {
           this->dataPtr->pathLossPublishers[name1][name2].Publish(msgPathLoss);
-          //igndbg << "Publish Path Loss " << name1 << " and " << name2 << ": " << pathLoss << std::endl;
+          igndbg << "Path Loss:" << name1 << " and " << name2 << " : " << pathLoss << std::endl;
       }
       
     }

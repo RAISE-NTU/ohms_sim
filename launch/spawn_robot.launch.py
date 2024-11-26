@@ -72,6 +72,10 @@ def namespace_sdf_file(sdf_path, params):
         odom_topic = plugin.find('odom_topic')
         if odom_topic is not None and odom_topic.text == 'odom_ground_truth':
             plugin.find('odom_topic').text = namespace + '/odom_ground_truth'
+        # Give a unique topic name for odom frame
+        odom_frame = plugin.find('odom_frame')
+        if odom_frame is not None and odom_frame.text == 'map':
+            plugin.find('odom_frame').text = namespace + '/map'
     for sensor in tree.findall('model/link/sensor'):
         if sensor.attrib['name'] == 'front_laser':
             # Give the laser scan points a unique topic name

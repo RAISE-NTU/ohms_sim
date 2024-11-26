@@ -44,6 +44,12 @@
   gz_type_name: "ignition.msgs.Odometry"
   direction: GZ_TO_ROS
 
+- ros_topic_name: "atlas/pose"
+  gz_topic_name: "model/atlas/pose"
+  ros_type_name: "geometry_msgs/msg/PoseArray"
+  gz_type_name: "ignition.msgs.Pose_V"
+  direction: GZ_TO_ROS
+
 - ros_topic_name: "atlas/cmd_vel"
   gz_topic_name: "atlas/cmd_vel"
   ros_type_name: "geometry_msgs/msg/Twist"
@@ -91,6 +97,12 @@
   gz_topic_name: "bestla/odom_ground_truth"
   ros_type_name: "nav_msgs/msg/Odometry"
   gz_type_name: "ignition.msgs.Odometry"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "bestla/pose"
+  gz_topic_name: "model/bestla/pose"
+  ros_type_name: "geometry_msgs/msg/PoseArray"
+  gz_type_name: "ignition.msgs.Pose_V"
   direction: GZ_TO_ROS
 
 - ros_topic_name: "bestla/cmd_vel"

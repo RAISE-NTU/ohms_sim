@@ -62,10 +62,10 @@ def generate_ros_gz_bridge_dict(sim_params):
 
 
 def generate_launch_description():
-    ntu_hmrs_sim_share_dir = get_package_share_directory('ntu_hmrs_sim')
+    hmrs_sim_share_dir = get_package_share_directory('hmrs_sim')
     launch_description_list = []
 
-    sim_config_path = os.path.join(ntu_hmrs_sim_share_dir, 'config', 'multi_robot_sim.yaml')
+    sim_config_path = os.path.join(hmrs_sim_share_dir, 'config', 'multi_robot_sim.yaml')
     with open(sim_config_path, 'r') as f:
         sim_config = yaml.safe_load(f)
         print(yaml.dump(sim_config, sort_keys=False, default_flow_style=False))
@@ -78,7 +78,7 @@ def generate_launch_description():
 
     # Get the launch file for spawning a single robot
     spawn_robot_python_source = PythonLaunchDescriptionSource(
-        os.path.join(ntu_hmrs_sim_share_dir, 'launch', 'spawn_robot.launch.py')
+        os.path.join(hmrs_sim_share_dir, 'launch', 'spawn_robot.launch.py')
     )
     for robot, init_pose in zip(sim_params['robot_names'], sim_params['init_poses']):
         spawn_robot_params = {
@@ -96,8 +96,8 @@ def generate_launch_description():
         launch_description_list.append(spawn_robot)
 
     # Start the parameter bridge for communication between ROS2 and Ignition Gazebo
-    ros_gz_config = os.path.join(ntu_hmrs_sim_share_dir, 'config', 'multi_robot_ros_gz_bridge.yaml')
-    ros_gz_tmp_config = os.path.join(ntu_hmrs_sim_share_dir, 'config', 'multi_robot_ros_gz_bridge_tmp.yaml')
+    ros_gz_config = os.path.join(hmrs_sim_share_dir, 'config', 'multi_robot_ros_gz_bridge.yaml')
+    ros_gz_tmp_config = os.path.join(hmrs_sim_share_dir, 'config', 'multi_robot_ros_gz_bridge_tmp.yaml')
     os.system('cp ' + ros_gz_config + ' ' + ros_gz_tmp_config)
     ros_gz_bridge_dict = generate_ros_gz_bridge_dict(sim_params)
     print(ros_gz_bridge_dict)

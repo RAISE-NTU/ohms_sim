@@ -76,6 +76,16 @@ def namespace_sdf_file(sdf_path, params):
         odom_frame = plugin.find('odom_frame')
         if odom_frame is not None and odom_frame.text == 'map':
             plugin.find('odom_frame').text = namespace + '/map'
+        #####################################################################
+        # For UAV:
+        # Update namespace in motor controllers and velocity 
+        name_space = plugin.find('robotNamespace')
+        if name_space is not None and name_space.text == 'robot_namespace':
+            plugin.find('robotNamespace').text = namespace
+        # cmd_vel unique name
+        cmd_sub_topic = plugin.find('commandSubTopic')
+        if cmd_sub_topic is not None and cmd_sub_topic.text == 'cmd_vel':
+            plugin.find('commandSubTopic').text = namespace + '/cmd_vel'
     for sensor in tree.findall('model/link/sensor'):
         if sensor.attrib['name'] == 'front_laser':
             # Give the laser scan points a unique topic name

@@ -56,57 +56,57 @@
   gz_type_name: "ignition.msgs.Twist"
   direction: ROS_TO_GZ
 
-# bestla robot
-- ros_topic_name: "bestla/velodyne_points"
-  gz_topic_name: "bestla/laser_scan/points"
+# ravana robot
+- ros_topic_name: "ravana/velodyne_points"
+  gz_topic_name: "ravana/laser_scan/points"
   ros_type_name: "sensor_msgs/msg/PointCloud2"
   gz_type_name: "ignition.msgs.PointCloudPacked"
   direction: GZ_TO_ROS
 
-- ros_topic_name: "bestla/rgbd_points"
-  gz_topic_name: "bestla/rgbd_camera/points"
+- ros_topic_name: "ravana/rgbd_points"
+  gz_topic_name: "ravana/rgbd_camera/points"
   ros_type_name: "sensor_msgs/msg/PointCloud2"
   gz_type_name: "ignition.msgs.PointCloudPacked"
   direction: GZ_TO_ROS
 
-- ros_topic_name: "bestla/rgbd_camera_info"
-  gz_topic_name: "bestla/rgbd_camera/camera_info"
+- ros_topic_name: "ravana/rgbd_camera_info"
+  gz_topic_name: "ravana/rgbd_camera/camera_info"
   ros_type_name: "sensor_msgs/msg/CameraInfo"
   gz_type_name: "ignition.msgs.CameraInfo"
   direction: GZ_TO_ROS
 
-- ros_topic_name: "bestla/rgbd_camera_image"
-  gz_topic_name: "bestla/rgbd_camera/image"
+- ros_topic_name: "ravana/rgbd_camera_image"
+  gz_topic_name: "ravana/rgbd_camera/image"
   ros_type_name: "sensor_msgs/msg/Image"
   gz_type_name: "ignition.msgs.Image"
   direction: GZ_TO_ROS
 
-- ros_topic_name: "bestla/rgbd_camera_depth_image"
-  gz_topic_name: "bestla/rgbd_camera/depth_image"
+- ros_topic_name: "ravana/rgbd_camera_depth_image"
+  gz_topic_name: "ravana/rgbd_camera/depth_image"
   ros_type_name: "sensor_msgs/msg/Image"
   gz_type_name: "ignition.msgs.Image"
   direction: GZ_TO_ROS
 
-- ros_topic_name: "bestla/imu/data"
-  gz_topic_name: "bestla/imu/data"
+- ros_topic_name: "ravana/imu/data"
+  gz_topic_name: "ravana/imu/data"
   ros_type_name: "sensor_msgs/msg/Imu"
   gz_type_name: "ignition.msgs.IMU"
   direction: GZ_TO_ROS
 
-- ros_topic_name: "bestla/odom_ground_truth"
-  gz_topic_name: "bestla/odom_ground_truth"
+- ros_topic_name: "ravana/odom_ground_truth"
+  gz_topic_name: "ravana/odom_ground_truth"
   ros_type_name: "nav_msgs/msg/Odometry"
   gz_type_name: "ignition.msgs.Odometry"
   direction: GZ_TO_ROS
 
-- ros_topic_name: "bestla/pose"
-  gz_topic_name: "model/bestla/pose"
+- ros_topic_name: "ravana/pose"
+  gz_topic_name: "model/ravana/pose"
   ros_type_name: "geometry_msgs/msg/PoseArray"
   gz_type_name: "ignition.msgs.Pose_V"
   direction: GZ_TO_ROS
 
-- ros_topic_name: "bestla/cmd_vel"
-  gz_topic_name: "bestla/uav/cmd_vel"
+- ros_topic_name: "ravana/cmd_vel"
+  gz_topic_name: "ravana/uav/cmd_vel"
   ros_type_name: "geometry_msgs/msg/Twist"
   gz_type_name: "ignition.msgs.Twist"
   direction: ROS_TO_GZ

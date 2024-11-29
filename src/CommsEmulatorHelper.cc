@@ -47,7 +47,7 @@ void CommsEmulatorHelper::Configure(const gz::sim::Entity &_entity,
 
   // Hard-code robot names for now. 
   // TODO: read these from SDF file.
-  std::vector<std::string> robotNames = {"atlas", "bestla"};
+  std::vector<std::string> robotNames = {"atlas", "bestla", "rama", "ravana"};
 
   // Initialize positions for each robot name
   for (const auto &robotName : robotNames) 

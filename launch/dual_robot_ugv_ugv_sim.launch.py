@@ -27,7 +27,7 @@ def generate_launch_description():
         if arg.startswith('world:='):
             world = arg.split(':=')[1]
 
-    sim_config_path = os.path.join(hmrs_sim_share_dir, 'config', 'dual_robot_' + world + '_sim.yaml')
+    sim_config_path = os.path.join(hmrs_sim_share_dir, 'config', 'dual_robot_ugv_ugv_' + world + '_sim.yaml')
     with open(sim_config_path, 'r') as f:
         sim_config = yaml.safe_load(f)
         print(yaml.dump(sim_config, sort_keys=False, default_flow_style=False))
@@ -52,7 +52,7 @@ def generate_launch_description():
     )
 
     # Start the parameter bridge for communication between ROS2 and Ignition Gazebo
-    ros_gz_config = os.path.join(hmrs_sim_share_dir, 'config', 'dual_robot_rgbd_lidar_ros_gz_bridge.yaml') # Change here for relevant sensor config
+    ros_gz_config = os.path.join(hmrs_sim_share_dir, 'config', 'dual_robot_ugv_ugv_rgbd_lidar_ros_gz_bridge.yaml') # Change here for relevant sensor config
     ros_gz_bridge = ExecuteProcess(cmd=['ros2', 'run', 'ros_gz_bridge', 'parameter_bridge',
                                         '--ros-args', '-p', 'config_file:=' + ros_gz_config], output='screen')
 

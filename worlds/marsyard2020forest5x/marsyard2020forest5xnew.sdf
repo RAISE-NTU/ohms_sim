@@ -1,0 +1,219 @@
+<?xml version="1.0" ?>
+<sdf version='1.9'>
+  <world name='marsyard2020'>
+    <physics name='10ms' type='ignored'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <dart>
+        <collision_detector>bullet</collision_detector>
+        <solver>
+          <solver_type>dantzig</solver_type>
+        </solver>
+      </dart>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <plugin name='ignition::gazebo::systems::Physics' filename='ignition-gazebo-physics-system'/>
+    <plugin name='ignition::gazebo::systems::Sensors' filename='ignition-gazebo-sensors-system'>
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin name='ignition::gazebo::systems::SceneBroadcaster' filename='ignition-gazebo-scene-broadcaster-system'/>
+    <plugin name='ignition::gazebo::systems::UserCommands' filename='ignition-gazebo-user-commands-system'/>
+    <plugin name='ignition::gazebo::systems::Imu' filename='libignition-gazebo-imu-system.so'/>
+    <plugin name='comms_emulator_helper_system::CommsEmulatorHelper' filename='CommsEmulatorHelper'/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <world_frame_orientation>ENU</world_frame_orientation>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <model name='marsyard'>
+      <model name='marsyard2020_forest_terrain_5x'>
+        <pose>0.0 0.0 0.0 1.5708 0.0 0.0</pose>
+        <static>true</static>
+        <link name='marsyard_forest_terrain_5x'>
+          <collision name='collision'>
+            <geometry>
+              <mesh>
+                <uri>model://marsyard2020_forest_terrain_5x/meshes/terrain_compressed_norocks_5x.obj</uri>
+              </mesh>
+            </geometry>
+          </collision>
+          <visual name='visual'>
+            <geometry>
+              <mesh>
+                <uri>model://marsyard2020_forest_terrain_5x/meshes/terrain_compressed_norocks_5x.obj</uri>
+              </mesh>
+            </geometry>
+          </visual>
+        </link>
+      </model>
+      <pose>0 0 0 0 -0 0</pose>
+      <static>false</static>
+      <self_collide>false</self_collide>
+    </model>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree</name>
+      <pose>-7.96017 8.827 5.05206 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_1</name>
+      <pose>-9.29976 -4.95279 5.01711 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_2</name>
+      <pose>-2.07042 1.74422 4.13213 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_3</name>
+      <pose>1.14566 -7.02667 0.574685 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_4</name>
+      <pose>7.10257 8.59763 4.00354 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_5</name>
+      <pose>10.478 -0.528504 5.43062 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_6</name>
+      <pose>-3.94358 -12.7763 6.10932 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_7</name>
+      <pose>-6.7149 1.31373 3.96402 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_8</name>
+      <pose>-1.90388 -4.87227 4.08201 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_9</name>
+      <pose>5.3776 2.47142 4.69952 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_10</name>
+      <pose>7.39261 -5.7274 6.97107 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_11</name>
+      <pose>8.8207 -14.9426 3.64596 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_12</name>
+      <pose>-13.0572 -14.5817 4.38759 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_13</name>
+      <pose>-16.1915 -0.470353 6.36712 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_14</name>
+      <pose>-16.4372 8.21498 4.98821 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_15</name>
+      <pose>-5.71319 16.0748 4.54669 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_16</name>
+      <pose>-6.72508 24.5683 3.6966 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_17</name>
+      <pose>11.1467 20.0745 3.6659 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_18</name>
+      <pose>3.13527 17.4443 4.286 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_19</name>
+      <pose>2.16341 24.9711 3.91872 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_20</name>
+      <pose>-13.5986 17.9145 4.41186 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_21</name>
+      <pose>1.29572 32.9661 3.84968 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_22</name>
+      <pose>12.2561 31.2173 4.40053 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_23</name>
+      <pose>14.5224 13.7345 4.6265 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_24</name>
+      <pose>21.1236 24.1192 3.51407 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_25</name>
+      <pose>-9.97735 32.326 5.79837 0.410009 0.278628 0.118978</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_26</name>
+      <pose>-20.964 -9.61135 6.48221 0 -0 0</pose>
+    </include>
+    <light name='sun' type='directional'>
+      <pose>0 0 10 0 -0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 0.1 -0.9</direction>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <linear>0.01</linear>
+        <constant>0.90000000000000002</constant>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+  </world>
+</sdf>

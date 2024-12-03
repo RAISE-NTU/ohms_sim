@@ -5,9 +5,9 @@ spawn_robot_1:
     world: "marsyard2020" # name of the world in which the robot should be spawned
     use_imu: true
     # start pose of the robot (atlas) in the world -7.0 0.0 3.96 0.0 0.0 0.0
-    x: "-17.0"
-    y: "13.5"
-    z: "1.1"
+    x: "-15.0"
+    y: "-28.0"
+    z: "5.0"
     roll: "0.0"
     pitch: "0.0"
     yaw: "0.0"
@@ -19,9 +19,9 @@ spawn_robot_2:
     world: "marsyard2020" # name of the world in which the robot should be spawned
     use_imu: true
     # start pose of the robot (atlas) in the world -7.0 0.0 3.96 0.0 0.0 0.0
-    x: "-17.0"
-    y: "11.5"
-    z: "1.1"
+    x: "-15.0"
+    y: "-29.0"
+    z: "5.0"
     roll: "0.0"
     pitch: "0.0"
     yaw: "0.0"
@@ -32,9 +32,9 @@ spawn_robot_3:
     sdf_file: "X4_UAV_Config_RAISE/model.sdf" # path to the sdf file in the share folder of the package
     world: "marsyard2020" # name of the world in which the robot should be spawned
     use_imu: true
-    x: "-19.0"
-    y: "13.5"
-    z: "1.1"
+    x: "-16.0"
+    y: "-29.0"
+    z: "5.0"
     roll: "0.0"
     pitch: "0.0"
     yaw: "0.0"
@@ -45,9 +45,9 @@ spawn_robot_4:
     sdf_file: "X4_UAV_Config_RAISE/model.sdf" # path to the sdf file in the share folder of the package
     world: "marsyard2020" # name of the world in which the robot should be spawned
     use_imu: true
-    x: "-19.0"
-    y: "11.5"
-    z: "1.1"
+    x: "-16.0"
+    y: "-28.0"
+    z: "5.0"
     roll: "0.0"
     pitch: "0.0"
     yaw: "0.0"

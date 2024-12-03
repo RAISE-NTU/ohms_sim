@@ -9,7 +9,7 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://marsyard2020_terrain/meshes/terrain_compressed_norocks.obj</uri>
+            <uri>model://marsyard2020_forest_terrain/meshes/terrain_compressed_norocks.obj</uri>
           </mesh>
         </geometry>
       </collision>
@@ -17,7 +17,7 @@
       <visual name="visual">	
         <geometry>
           <mesh>
-            <uri>model://marsyard2020_terrain/meshes/terrain_compressed_norocks.obj</uri>
+            <uri>model://marsyard2020_forest_terrain/meshes/terrain_compressed_norocks.obj</uri>
           </mesh>
         </geometry>
       </visual>

@@ -1,0 +1,127 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="marsyard2020">
+    <physics name="10ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <dart>
+        <collision_detector>bullet</collision_detector>
+      </dart>
+    </physics>
+    
+    <plugin
+      filename="ignition-gazebo-physics-system"
+      name="ignition::gazebo::systems::Physics">
+    </plugin>
+    <plugin
+      filename="ignition-gazebo-sensors-system"
+      name="ignition::gazebo::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin
+      filename="ignition-gazebo-scene-broadcaster-system"
+      name="ignition::gazebo::systems::SceneBroadcaster">
+    </plugin>
+    <plugin
+      filename="ignition-gazebo-user-commands-system"
+      name="ignition::gazebo::systems::UserCommands">
+    </plugin>
+
+    <!-- imu pugin -->
+    <plugin 
+      filename="libignition-gazebo-imu-system.so"
+      name="ignition::gazebo::systems::Imu">
+    </plugin>
+
+    <!--Comms emulator helper-->
+    <plugin 
+      name='comms_emulator_helper_system::CommsEmulatorHelper' 
+      filename='CommsEmulatorHelper'>
+    </plugin>
+
+    <light name="sun" type="directional">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <model name="marsyard">
+      <include>
+        <uri>model://marsyard2020_forest_terrain_5x</uri>
+      </include>
+    </model>
+        <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree</name>
+      <pose>-7.96017 8.827 0.752896 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_1</name>
+      <pose>-9.29976 -4.95279 0.743451 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_2</name>
+      <pose>-2.07042 1.74422 0.728098 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_3</name>
+      <pose>1.14566 -7.02667 0.574685 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_4</name>
+      <pose>7.10257 8.59763 1.00927 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_5</name>
+      <pose>10.478 -0.528504 0.890923 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_6</name>
+      <pose>-3.94358 -12.7763 0.605591 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_7</name>
+      <pose>-6.7149 1.31373 0.625125 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_8</name>
+      <pose>-1.90388 -4.87227 0.799604 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_9</name>
+      <pose>5.3776 2.47142 0.835416 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://oak tree</uri>
+      <name>Oak tree_10</name>
+      <pose>7.39261 -5.7274 0.83273 0 -0 0</pose>
+    </include>
+
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <world_frame_orientation>ENU</world_frame_orientation>
+      <latitude_deg>0.0</latitude_deg>
+      <longitude_deg>0.0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+
+  </world>
+</sdf>

@@ -14,7 +14,7 @@
 // in the cc file, like it's done here.
 #include <gz/plugin/Register.hh>
 
-// plugin's header.
+// Don't forget to include the plugin's header.
 #include "comms_emulator_helper_system/CommsEmulatorHelper.hh"
 
 // This is required to register the plugin. Make sure the interfaces match
@@ -42,7 +42,6 @@ void CommsEmulatorHelper::Configure(const gz::sim::Entity &_entity,
                 gz::sim::EventManager &_eventManager)
 {
   // Subscribe to the ../pose/info topic
-  // TODO: get world name from SDF file.
   this->dataPtr->node.Subscribe("/world/marsyard2020/pose/info", 
                                 &CommsEmulatorHelper::OnPoseInfoTopic, this);
 
@@ -79,15 +78,31 @@ void CommsEmulatorHelper::Configure(const gz::sim::Entity &_entity,
       this->dataPtr->packetErrorRatePublishers[robot1][robot2] = this->dataPtr->node.Advertise<gz::msgs::Double>(topicPER, options);
       this->dataPtr->packetDropRatePublishers[robot1][robot2] = this->dataPtr->node.Advertise<gz::msgs::Double>(topicPDR, options);
       this->dataPtr->pathLossPublishers[robot1][robot2] = this->dataPtr->node.Advertise<gz::msgs::Double>(topicPathLoss, options);
+      
+      //igndbg << "Created publishers for robot pair: " << robot1 << " to " << robot2 << std::endl;
     }
   }
 }
 
-// Subscription callback for the pose/info topic
+// Subscription callback for the example topic
 void CommsEmulatorHelper::OnPoseInfoTopic(const gz::msgs::Pose_V &_msg)
 {
   std::lock_guard<std::mutex> lock(this->dataPtr->dataMutex);
   this->dataPtr->receivedData = _msg;
+
+  //Debug: Print the number of poses received
+  //igndbg << "Received " << _msg.pose_size() << " poses in OnPoseInfoTopic" << std::endl;
+  // for (int i = 0; i < _msg.pose_size(); ++i) 
+  // {
+  //     const auto &pose = _msg.pose(i);
+  //     if (pose.name().find("tree") != std::string::npos)
+  //     {
+  //       igndbg << "Pose received for: " << pose.name() 
+  //             << " Position: (" << pose.position().x() 
+  //             << ", " << pose.position().y() 
+  //             << ", " << pose.position().z() << ")" << std::endl;
+  //     }
+  // }
 }
 
 void CommsEmulatorHelper::PreUpdate(const gz::sim::UpdateInfo &_info,
@@ -146,52 +161,6 @@ double CalculatePathLossWithVariance(double distance, const EnvNetworkConfig &ne
 double CalculateFreeSpacePathLoss(double distance) 
 {
     return 20 * std::log10(distance) + 20 * std::log10(2.4) - 27.55;
-}
-
-// Calculate Meadow Path Loss
-// https://ieeexplore.ieee.org/document/6484898
-// Table IX - 2.4 GHz, 0.9m height parameters
-double CalculateMeadowPathLoss(double distance) 
-{
-    double dbreak = 22.0;
-
-    if (distance < dbreak) {
-        return 67.7 + 17.5 * std::log10(distance);
-    } else {
-        return 35.75 + 41.3 * std::log10(distance);
-    }
-}
-
-// https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=d955fd45934529f7886a23e385891f3c8c905062
-// https://www.mdpi.com/1424-8220/22/9/3267
-double CalculateMAITURPathLoss(double distance)
-{
-    // Constants as given (from Salameh's results)
-    const double A_M = 38.0;       // Maximum excess attenuation in dB
-    const double R = 0.9;          // Initial slope of the attenuation curve in dB/m
-    const double f_GHz = 2.4;      // Frequency in GHz
-    const double f_MHz = f_GHz * 1000.0; // Convert GHz to MHz
-
-    // Convert distance from metres to kilometres
-    double d_km = distance / 1000.0;
-
-    // Calculate the attenuation term
-    double attenuationTerm = A_M * (1.0 - std::exp((-R * d_km) / A_M));
-
-    // Combine terms according to the formula:
-    // PL = A_M(1 - e^(-R d / A_M)) + 32.44 + 20 log10(d) + 20 log10(f)
-    double pathLoss = attenuationTerm 
-                      + 32.44 
-                      + 20.0 * std::log10(d_km) 
-                      + 20.0 * std::log10(f_MHz);
-
-    return pathLoss;
-}
-
-// Calculate Free Space Path Loss, according to https://ieeexplore.ieee.org/document/9260568
-double CalculateTreePathLoss(double Po, double distance, double numTrees, double Lv) 
-{
-    return Po + 20 * std::log10(distance) + numTrees * Lv;
 }
 
 // Convert dBm to Power
@@ -300,6 +269,11 @@ double FresnelZoneRadius (double distanceMetres, double frequencyHz)
 void CommsEmulatorHelper::PostUpdate(const gz::sim::UpdateInfo &_info,
                             const gz::sim::EntityComponentManager &_ecm) 
 {
+  // if (!_info.paused && _info.iterations % 1000 == 0)
+  // {
+  //   igndbg << "comms_emulator_helper_system::CommsEmulatorHelper::PostUpdate" << std::endl;
+  // }
+
   // Lock for thread safety when accessing shared data
   std::lock_guard<std::mutex> lock(this->dataPtr->dataMutex);
 
@@ -313,6 +287,12 @@ void CommsEmulatorHelper::PostUpdate(const gz::sim::UpdateInfo &_info,
   // Loop through each pose in receivedData, with index bounds check
   for (int i = 0; i < poseCount; ++i)
   {
+    if (i >= poseCount) 
+    {
+        ignerr << "Out-of-bounds access attempted in PostUpdate: index " << i << ", total poses " << poseCount << std::endl;
+        break;
+    }
+
     const auto &pose = this->dataPtr->receivedData.pose(i);
 
     // Verify if pose name matches any key in robotPositions
@@ -328,13 +308,37 @@ void CommsEmulatorHelper::PostUpdate(const gz::sim::UpdateInfo &_info,
     }
   }
 
+  // Debugging: Print the entire robotPositions map after processing updates
+  // igndbg << "=== Current State of robotPositions Map ===" << std::endl;
+  // for (const auto &entry : this->dataPtr->robotPositions) {
+  //     const auto &name = entry.first;
+  //     const auto &pos = entry.second;
+  //     igndbg << "Robot: " << name 
+  //             << " | Position: (" << pos.getX() 
+  //             << ", " << pos.getY() 
+  //             << ", " << pos.getZ() << ")" << std::endl;
+  // }
+  // igndbg << "===========================================" << std::endl;
+
+  // Debugging: Print the entire treePositions map 
+  // igndbg << "=== Current State of treePositions Map ===" << std::endl;
+  // for (const auto &entry : this->dataPtr->treePositions) {
+  //     const auto &name = entry.first;
+  //     const auto &pos = entry.second;
+  //     igndbg << "Tree: " << name 
+  //             << " | Position: (" << pos.getX() 
+  //             << ", " << pos.getY() 
+  //             << ", " << pos.getZ() << ")" << std::endl;
+  // }
+  // igndbg << "===========================================" << std::endl;
+
   // Ensure there are robot positions to process
   if (this->dataPtr->robotPositions.size() < 2) {
       igndbg << "Not enough robots to calculate distances and network parameters." << std::endl;
       return;
   }
 
-  // Instantiate the EnvNetworkConfig and RobotNetworkConfig (adjust parameters as needed)
+  // Instantiate the EnvNetworkConfig (adjust parameters as needed)
   EnvNetworkConfig envNetworkConfig;
   RobotNetworkConfig robotNetworkConfig;
 
@@ -342,6 +346,7 @@ void CommsEmulatorHelper::PostUpdate(const gz::sim::UpdateInfo &_info,
   // 802.11n wifi
   // Aggregate MAC Service Data Unit (A-MSDU): Maximum Payload Size: Up to 7,935 bytes = 63,480 bits.
   // Aggregate MAC Protocol Data Unit (A-MPDU): Maximum Payload Size: Up to 65,535 bytes = 524,280 bits. (better for forests)
+
   double packetSizeInBits = 524280.0;
 
   // Loop over all pairs of robots (excluding self-pairs)
@@ -374,8 +379,17 @@ void CommsEmulatorHelper::PostUpdate(const gz::sim::UpdateInfo &_info,
       {
           const Position &treePos = treeEntry.second;
 
+          // Debug the robots and tree positions
+          // igndbg << "Checking for (" << pos1.getX() << ", " << pos1.getY() << ") and ("
+          // << pos2.getX() << ", " << pos2.getY() << ") with ("
+          // << treePos.getX() << ", " << treePos.getY() << ")" << std::endl;
+
           // Calculate squared distance from the tree to the line segment between the two robots
           double distanceSquared = PointToSegmentDistanceSquared(pos1, pos2, treePos);
+
+          //Debug distance
+          // igndbg << "Squared distance from the tree to the line segment: " << distanceSquared <<
+          // " Squared on the link threshold : " << onTheLinkTreshold * onTheLinkTreshold << std::endl;
 
           // If the distance is less than or equal to the squared tree radius, count the tree
           if (distanceSquared < onTheLinkTreshold * onTheLinkTreshold) 
@@ -384,85 +398,75 @@ void CommsEmulatorHelper::PostUpdate(const gz::sim::UpdateInfo &_info,
           }
       }
 
+      // Output the number of trees on the line
+      //igndbg << "Number of trees on the line between " << name1 << " and " << name2 << ": " << treesOnLink << std::endl;
+
       double pathLoss = 0;
-      
-      // Calculate Path Loss
-      // Method 1: If there are trees on LOS, tree attenuation is added to meadow attenuation.
-      // for meadows : https://ieeexplore.ieee.org/document/6484898
-      // for trees seperately : https://ieeexplore.ieee.org/document/9260568
-      ////////////////////////////////////////////////////////////////////////
-      // Method 2: Demetri uses Azevedo's methods. I use LINK model by demetry and improve using Fresnel zones.
-      // Demetri : https://ieeexplore.ieee.org/document/7165025 
-      // Azevedo : https://ieeexplore.ieee.org/document/5751639 
-      ////////////////////////////////////////////////////////////////////////
-      // Method 3: Similar to Method 1 with Maximum Attenuation ITU-R model swapped for Meadow model
-      // MA-ITU-R: https://www.mdpi.com/1424-8220/22/9/3267#:~:text=ITU%2DR%20Maximum%20Attenuation%20and%20Free%20Space%20Pathloss%20(ITU%2DR%20MA%20FSPL)%20Model
-      ////////////////////////////////////////////////////////////////////////
-      // Method 4: Complete Botella-Campos https://ieeexplore.ieee.org/document/9260568 with my fresnel zone tree detection
-      ////////////////////////////////////////////////////////////////////////
-      // Method 5: Custom parameters for log loss path loss model fitted for following requirements
-      // Max range without trees LOS ~ 70m ref- https://ieeexplore.ieee.org/document/7943528
-      // Tree attenuation ~ 12 dBm ref - https://ieeexplore.ieee.org/document/9260568
-      // Variance ~ 4.4
-      // No trees LOS
-      // lo = 50
-      // fading exponent measured as 3.5 for range ~ 50m
-      // Assuming 2 trees LOS
-      // lo = 40
-      // fading exponent measured as 2.5 for range ~ 50m
+      double vegetationIndex = 1.7; // VD for Oak trees in Azevedo paper
+      // However we may have to adjust this for realistic simulation! range ~ 50m for VD = 25
+      // Calculate NetworkConfig parameters
       if (treesOnLink == 0)
       {
-        // Method 1:
-          //pathLoss = CalculateMeadowPathLoss(distance);
-        // Method 2:
-          //pathLoss = FreeSpacePathLoss(distance);
-        // Method 3:
-          //pathLoss = CalculateMAITURPathLoss(distance);
-        // Method 4:
-          //pathLoss = 49.17 - 20 * std::log10(distance);
-        // Method 5:
-          envNetworkConfig.setL0(50.0);
-          envNetworkConfig.setFadingExponent(3.5);
+          envNetworkConfig.setL0(-0.82 * vegetationIndex + 40.1);
+          envNetworkConfig.setFadingExponent(0.1717 * vegetationIndex + 2.2043);
           envNetworkConfig.setVariance(4.4);
           pathLoss = CalculatePathLossWithVariance(distance, envNetworkConfig);
       }
 
       if (treesOnLink > 0)
       {
-        // Method 1:
-          //pathLoss = CalculateMeadowPathLoss(distance) + 12 * treesOnLink;
-        // Method 2:
-          // double vegetationIndex = treesOnLink / (linkModelWidth * distance) * treeRadius * 100 * 2; // VD = TD.D
-          // envNetworkConfig.setL0(-0.82 * vegetationIndex + 40.1);
-          // envNetworkConfig.setFadingExponent(0.1717 * vegetationIndex + 2.2043);
-          // envNetworkConfig.setVariance(4.4);
-          // pathLoss = CalculatePathLossWithVariance(distance, envNetworkConfig);
-        // Method 3:
-          //pathLoss = CalculateMAITURPathLoss(distance) + 11.98 * treesOnLink;
-        // Method 4:
-          //pathLoss = 49.17 - 20 * std::log10(distance) + 11.98 * treesOnLink;
-        // Method 5:
-          envNetworkConfig.setL0(40.0);
-          envNetworkConfig.setFadingExponent(2.5);
+          //double vegetationIndex = treesOnLink / (linkModelWidth * distance) * treeRadius * 100 * 2; // VD = TD.D
+          envNetworkConfig.setL0(-0.82 * vegetationIndex + 40.1);
+          envNetworkConfig.setFadingExponent(0.1717 * vegetationIndex + 2.2043);
           envNetworkConfig.setVariance(4.4);
-          pathLoss = CalculatePathLossWithVariance(distance, envNetworkConfig) + 12 * treesOnLink;
+          pathLoss = CalculatePathLossWithVariance(distance, envNetworkConfig)+ 12 * treesOnLink; // https://ieeexplore.ieee.org/document/9260568
       }
 
       // Calculate received power
       double rxPower = robotNetworkConfig.getTxPower() - pathLoss;
+      //igndbg << "Rx Power " << name1 << " and " << name2 << " : " << rxPower << std::endl;
+
+      // // Message dropping because of antenna sensitivity
+      // if (rxPower < robotNetworkConfig.getAntennaSensitivity())
+      // {
+      //   gz::msgs::Double msgPDR;
+      //   msgPDR.set_data(1.0);
+
+      //   // Publish to corresponding topics if publishers exist
+      //   if (this->dataPtr->packetDropRatePublishers.count(name1) > 0 &&
+      //       this->dataPtr->packetDropRatePublishers[name1].count(name2) > 0) 
+      //   {
+      //       this->dataPtr->packetDropRatePublishers[name1][name2].Publish(msgPDR);
+      //       //igndbg << "Publish PDR " << name1 << " and " << name2 << ": 1.0" << std::endl;
+      //   }
+      // }
+      // else
+      // {
+      //   gz::msgs::Double msgPDR;
+      //   msgPDR.set_data(1e-08); // Don't change! This is the lowest we can go 
+      //   // (I think because of gz_msg Double or std to_string limitations in the emulator)
+
+      //   // Publish to corresponding topics if publishers exist
+      //   if (this->dataPtr->packetDropRatePublishers.count(name1) > 0 &&
+      //       this->dataPtr->packetDropRatePublishers[name1].count(name2) > 0) 
+      //   {
+      //       this->dataPtr->packetDropRatePublishers[name1][name2].Publish(msgPDR);
+      //       //igndbg << "Publish PDR " << name1 << " and " << name2 << ": 1.0" << std::endl;
+      //   }
+      // }
 
       // Calculate BER using SNR
-      // double ber = QPSKSNRToBER(DbmToPow(rxPower), DbmToPow(envNetworkConfig.getSnrThreshold()));
+      //double ber = QPSKSNRToBER(DbmToPow(rxPower), DbmToPow(envNetworkConfig.getSnrThreshold()));
       double ber = 0.0;
 
       if (treesOnLink == 0)
       {
-          double ber = AWGNQAM64EbNoToBER(DbmToPow(rxPower), DbmToPow(robotNetworkConfig.getAntennaNoiseFloor()));
+          double ber = AWGNQAM64EbNoToBER(DbmToPow(rxPower), DbmToPow(envNetworkConfig.getSnrThreshold()));
       }
 
       if (treesOnLink > 0)
       {
-          double ber = RAYLEIGHQAM64SNRToBER(DbmToPow(rxPower), DbmToPow(robotNetworkConfig.getAntennaNoiseFloor()));
+          double ber = RAYLEIGHQAM64SNRToBER(DbmToPow(rxPower), DbmToPow(envNetworkConfig.getSnrThreshold()));
       }
 
       // Calculate PER using BER
@@ -471,20 +475,24 @@ void CommsEmulatorHelper::PostUpdate(const gz::sim::UpdateInfo &_info,
       // Consolidated debug message for all calculated values
       igndbg << "Calculations between " << name1 << " and " << name2 << ":\n"
               << "  Euclidean Distance: " << distance << "\n"
-              << "  Number of trees LOS: " << treesOnLink << "\n"
               << "  Path Loss: " << pathLoss << "\n"
               << "  Rx Power: " << rxPower << "\n"
               << "  BER: " << ber << "\n"
               << "  PER: " << per << std::endl;
 
-      double SNR = rxPower - robotNetworkConfig.getAntennaNoiseFloor();
-
-      // https://arxiv.org/abs/1301.6644 Thesis shows effective SNR required for 802.11n, 64 QAM is 16.1 dBm
-      // However, https://wlanprofessionals.com/mcs-table-and-how-to-use-it/ MCS table gives 25 dBm
-      // I am choosing 25 dBm since the environment is not ideal
-      // From IEEE 802.11 standard PER should be 8% or 10% to achieve comms however, this is included in the above requirement 
-      // so not considering now.
-      if (SNR < 25) 
+      // Not needed now!
+      // Store network config for each robot pair
+      // EmuNetworkConfig emuNetworkConfig;
+      // emuNetworkConfig.setDistance(distance);
+      // emuNetworkConfig.setPathLoss(pathLoss);
+      // emuNetworkConfig.setRxPower(rxPower);
+      // emuNetworkConfig.setBER(ber);
+      // emuNetworkConfig.setPER(per);
+      // this->dataPtr->robotPairNetworkConfigs[name1][name2] = emuNetworkConfig;
+      
+      
+      
+      if (per > 0.08 || rxPower < envNetworkConfig.getSnrThreshold()) //robotNetworkConfig.getAntennaSensitivityPER() //from IEEE 802.11 standard PER should be 8% or 10% to achieve comms
       {
         gz::msgs::Double msgPDR;
         msgPDR.set_data(1.0);

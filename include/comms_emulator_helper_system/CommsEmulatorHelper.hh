@@ -93,72 +93,41 @@ namespace comms_emulator_helper_system
   class RobotNetworkConfig 
   {
   public:
-      RobotNetworkConfig(double txPower = 30.0, double antennaSensitivity = -40.0, double antennaSensitivityPER = 0.08) 
-          : txPower_(txPower), antennaSensitivity_(antennaSensitivity), antennaSensitivityPER_(antennaSensitivityPER) {}
+      // Antenna noise floor is taken from https://www.montana.edu/aolson/ee447/EB%20and%20NO.pdf for 802.11n wifi 
+      // This should come from antenna specs, for now let's keep this.
+      RobotNetworkConfig(double txPower = 30.0, double antennaNoiseFloor = -101.0) 
+          : txPower_(txPower), antennaNoiseFloor_(antennaNoiseFloor) {}
 
       double getTxPower() const { return txPower_; }
-      double getAntennaSensitivity() const { return antennaSensitivity_; }
-      double getAntennaSensitivityPER() const { return antennaSensitivityPER_; }
+      double getAntennaNoiseFloor() const { return antennaNoiseFloor_; }
 
       void setTxPower(double txPower) { txPower_ = txPower; }
-      void setAntennaSensitivity(double antennaSensitivity) { antennaSensitivity_ = antennaSensitivity;}
-      void setAntennaSensitivityPER(double antennaSensitivityPER) { antennaSensitivityPER_ = antennaSensitivityPER;}
+      void setAntennaNoiseFloor(double antennaNoiseFloor) { antennaNoiseFloor_ = antennaNoiseFloor;}
 
   private:
       double txPower_;
-      double antennaSensitivity_;
-      double antennaSensitivityPER_;
+      double antennaNoiseFloor_;
   };
 
   // EnvNetworkConfig class to manage path loss communication parameters
   class EnvNetworkConfig 
   {
   public:
-      EnvNetworkConfig(double l0 = -30.0, double fadingExponent = 3.5, double snrThreshold = -50, double variance = 10.0) 
-          : l0_(l0), fadingExponent_(fadingExponent), snrThreshold_(snrThreshold), variance_(variance) {}
+      EnvNetworkConfig(double l0 = -30.0, double fadingExponent = 3.5, double variance = 10.0) 
+          : l0_(l0), fadingExponent_(fadingExponent), variance_(variance) {}
 
       double getL0() const { return l0_; }
       double getFadingExponent() const { return fadingExponent_; }
-      double getSnrThreshold() const { return snrThreshold_; }
       double getVariance() const { return variance_; }
 
       void setL0(double l0) { l0_ = l0; }
       void setFadingExponent(double fadingExponent) { fadingExponent_ = fadingExponent; }
-      void setSnrThreshold(double snrThreshold) { snrThreshold_ = snrThreshold; }
       void setVariance(double variance) { variance_ = variance; }
 
   private:
       double l0_;
       double fadingExponent_;
-      double snrThreshold_;
       double variance_;
-  };
-
-  // EnvNetworkConfig class to manage communication parameters
-  class EmuNetworkConfig 
-  {
-  public:
-      EmuNetworkConfig(double distance = 0.0, double pathLoss = 0.0, double rxPower = 0.0, double ber = 0.0, double per = 0.0) 
-          : distance_(distance), pathLoss_(pathLoss), rxPower_(rxPower), ber_(ber), per_(per)  {}
-
-      double getDistance() const { return distance_; }
-      double getPathLoss() const { return pathLoss_; }
-      double getRxPower() const { return rxPower_; }
-      double getBER() const { return ber_; }
-      double getPER() const { return per_; }
-
-      void setDistance(double distance) { distance_ = distance; }
-      void setPathLoss(double pathLoss) { pathLoss_ = pathLoss; }
-      void setRxPower(double rxPower) { rxPower_ = rxPower; }
-      void setBER(double ber) { ber_ = ber; }
-      void setPER(double per) { per_ = per; }
-
-  private:
-      double distance_;
-      double pathLoss_;
-      double rxPower_;
-      double ber_;
-      double per_;
   };
 
   /// \brief Private data class for CommsEmulatorHelper
@@ -169,7 +138,6 @@ namespace comms_emulator_helper_system
     public: std::mutex dataMutex;  // Mutex to protect access to the received data
     public: std::map<std::string, Position> robotPositions; // Map to store positions by robot name
     public: std::map<std::string, Position> treePositions; // Map to store tree positions
-    public: std::map<std::string, std::map<std::string, EmuNetworkConfig>> robotPairNetworkConfigs; // Nested map for network config for robot pairs
     public: std::map<std::string, std::map<std::string, gz::transport::Node::Publisher>> packetErrorRatePublishers;
     public: std::map<std::string, std::map<std::string, gz::transport::Node::Publisher>> packetDropRatePublishers;
     public: std::map<std::string, std::map<std::string, gz::transport::Node::Publisher>> pathLossPublishers;

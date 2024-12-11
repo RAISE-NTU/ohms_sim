@@ -48,7 +48,7 @@ void CommsEmulatorHelper::Configure(const gz::sim::Entity &_entity,
 
   // Hard-code robot names for now. 
   // TODO: read these from SDF file.
-  std::vector<std::string> robotNames = {"atlas", "bestla"};
+  std::vector<std::string> robotNames = {"atlas", "bestla", "rama", "ravana"};
 
   // Initialize positions for each robot name
   for (const auto &robotName : robotNames) 
@@ -469,13 +469,13 @@ void CommsEmulatorHelper::PostUpdate(const gz::sim::UpdateInfo &_info,
       double per = BERToPER(ber, packetSizeInBits);
 
       // Consolidated debug message for all calculated values
-      igndbg << "Calculations between " << name1 << " and " << name2 << ":\n"
-              << "  Euclidean Distance: " << distance << "\n"
-              << "  Number of trees LOS: " << treesOnLink << "\n"
-              << "  Path Loss: " << pathLoss << "\n"
-              << "  Rx Power: " << rxPower << "\n"
-              << "  BER: " << ber << "\n"
-              << "  PER: " << per << std::endl;
+      // igndbg << "Calculations between " << name1 << " and " << name2 << ":\n"
+      //         << "  Euclidean Distance: " << distance << "\n"
+      //         << "  Number of trees LOS: " << treesOnLink << "\n"
+      //         << "  Path Loss: " << pathLoss << "\n"
+      //         << "  Rx Power: " << rxPower << "\n"
+      //         << "  BER: " << ber << "\n"
+      //         << "  PER: " << per << std::endl;
 
       double SNR = rxPower - robotNetworkConfig.getAntennaNoiseFloor();
 

@@ -1,3 +1,4 @@
+<?xml version="1.0" ?>
 <sdf version='1.9'>
   <world name='marsyard2020'>
     <scene>
@@ -78,227 +79,227 @@
       <self_collide>false</self_collide>
     </model>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree</name>
       <pose>19.7178 7.59589 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_1</name>
       <pose>18.8958 -2.54911 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_2</name>
       <pose>46.2987 -8.43147 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_3</name>
       <pose>56.2695 8.50884 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_4</name>
       <pose>54.4015 31.1871 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_5</name>
       <pose>31.7024 24.3856 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_6</name>
       <pose>41.5605 16.0888 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_7</name>
       <pose>35.6473 2.7063 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_8</name>
       <pose>35.1397 -13.762 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_9</name>
       <pose>50.8257 -35.4512 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_10</name>
       <pose>74.4499 -37.1595 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_11</name>
       <pose>85.8895 -27.1885 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_12</name>
       <pose>93.4796 -11.1494 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_13</name>
       <pose>94.7624 3.74054 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_14</name>
       <pose>90.6485 23.6862 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_15</name>
       <pose>88.8343 36.1995 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_16</name>
       <pose>23.4585 -14.5996 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_17</name>
       <pose>17.5049 21.661 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_18</name>
       <pose>31.4069 40.7327 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_19</name>
       <pose>51.8801 52.0084 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_20</name>
       <pose>71.4385 55.0004 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_21</name>
       <pose>8.27361 7.54876 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_22</name>
       <pose>8.98629 -5.48974 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_23</name>
       <pose>17.8772 -25.8125 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_24</name>
       <pose>34.5386 -35.5835 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_25</name>
       <pose>7.20553 -19.4341 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_26</name>
       <pose>6.48343 28.5006 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_27</name>
       <pose>-2.3968 14.032 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_28</name>
       <pose>-4.51341 -2.77688 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_29</name>
       <pose>58.6014 -25.9657 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_30</name>
       <pose>68.9331 -6.14396 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_0</name>
       <pose>-3.32206 -28.9374 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_31</name>
       <pose>8.15741 -38.9449 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_32</name>
       <pose>26.7994 -56.1873 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_33</name>
       <pose>54.3214 -80.9221 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_34</name>
       <pose>84.5161 -108.892 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_35</name>
       <pose>120.992 -143.255 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_36</name>
       <pose>-9.32065 -37.3201 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_37</name>
       <pose>-2.57401 -51.9928 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_38</name>
       <pose>8.76347 -77.1959 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_39</name>
       <pose>28.5552 -117.872 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_40</name>
       <pose>50.9033 -165.247 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_41</name>
       <pose>3.05728 -65.6158 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_42</name>
       <pose>17.1422 -96.1038 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/kalhan/Base_Experiment/ntu_hmrs_sim_ws/install/hmrs_sim/share/hmrs_sim/models/oak tree</uri>
+      <uri>model://oak tree</uri>
       <name>Oak tree_43</name>
       <pose>-6.1519 -44.9484 0 0 -0 0</pose>
     </include>

@@ -17,17 +17,17 @@ def booleans_to_strings_in_dict(dictionary):
 
 
 def generate_launch_description():
-    hmrs_sim_share_dir = get_package_share_directory('hmrs_sim')
+    ohms_sim_share_dir = get_package_share_directory('ohms_sim')
 
     # Simple hack to get the world argument from the command line, see https://answers.ros.org/question/376816/how-to-pass-launch-args-dynamically-during-launch-time/
-    print(f'Set the world (default marsyard2020), e.g. ros2 launch hmrs_sim dual_robot_sim.launch.py world:=forest')
+    print(f'Set the world (default marsyard2020), e.g. ros2 launch ohms_sim dual_robot_sim.launch.py world:=forest')
     print(f'Available worlds: forest. To add worlds create a world and create two config files for sim and ros_gz_bridge. See config folder for examples.')
     world = 'forest'
     for arg in sys.argv:
         if arg.startswith('world:='):
             world = arg.split(':=')[1]
 
-    sim_config_path = os.path.join(hmrs_sim_share_dir, 'config', 'dual_robot_ugv_ugv_' + world + '_sim.yaml')
+    sim_config_path = os.path.join(ohms_sim_share_dir, 'config', 'dual_robot_ugv_ugv_' + world + '_sim.yaml')
     with open(sim_config_path, 'r') as f:
         sim_config = yaml.safe_load(f)
         print(yaml.dump(sim_config, sort_keys=False, default_flow_style=False))
@@ -37,7 +37,7 @@ def generate_launch_description():
 
     # Spawn the two robots
     spawn_robot_python_source = PythonLaunchDescriptionSource(
-        os.path.join(hmrs_sim_share_dir, 'launch', 'spawn_robot.launch.py')
+        os.path.join(ohms_sim_share_dir, 'launch', 'spawn_robot.launch.py')
     )
     # transform all booleans to string, IncldueLaunchDescription does not support booleans
     booleans_to_strings_in_dict(spawn_robot_params_1)
@@ -52,7 +52,7 @@ def generate_launch_description():
     )
 
     # Start the parameter bridge for communication between ROS2 and Ignition Gazebo
-    ros_gz_config = os.path.join(hmrs_sim_share_dir, 'config', 'dual_robot_ugv_ugv_rgbd_lidar_ros_gz_bridge.yaml') # Change here for relevant sensor config
+    ros_gz_config = os.path.join(ohms_sim_share_dir, 'config', 'dual_robot_ugv_ugv_rgbd_lidar_ros_gz_bridge.yaml') # Change here for relevant sensor config
     ros_gz_bridge = ExecuteProcess(cmd=['ros2', 'run', 'ros_gz_bridge', 'parameter_bridge',
                                         '--ros-args', '-p', 'config_file:=' + ros_gz_config], output='screen')
 

@@ -7,10 +7,10 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 
 def generate_launch_description():
-    hmrs_sim_share_dir = get_package_share_directory('hmrs_sim')
+    ohms_sim_share_dir = get_package_share_directory('ohms_sim')
     ros_gz_sim_share_dir = get_package_share_directory('ros_gz_sim')
 
-    gz_args = os.path.join(hmrs_sim_share_dir, 'worlds', 'marsyard2020forest', 'marsyard2020forest.sdf')
+    gz_args = os.path.join(ohms_sim_share_dir, 'worlds', 'marsyard2020forest', 'marsyard2020forest.sdf')
     gz_args += " -v 4"
     gz_sim = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(

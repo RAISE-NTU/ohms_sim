@@ -55,9 +55,10 @@
             </plane>
           </geometry>
           <material>
-            <ambient>0.8 0.8 0.8 1</ambient>
-            <diffuse>0.8 0.8 0.8 1</diffuse>
-            <specular>0.8 0.8 0.8 1</specular>
+            <ambient>0.42 0.26 0.15 1</ambient>  <!-- Dark brown ambient light -->
+            <diffuse>0.55 0.35 0.2 1</diffuse>   <!-- Lighter brown under direct light -->
+            <specular>0.1 0.1 0.1 1</specular>  <!-- Minimal specular reflection -->
+            <emissive>0 0 0 1</emissive> 
           </material>
         </visual>
         <pose>0 0 0 0 -0 0</pose>

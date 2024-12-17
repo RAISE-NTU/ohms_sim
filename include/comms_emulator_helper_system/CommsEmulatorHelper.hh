@@ -141,6 +141,9 @@ namespace comms_emulator_helper_system
     public: std::map<std::string, std::map<std::string, gz::transport::Node::Publisher>> packetErrorRatePublishers;
     public: std::map<std::string, std::map<std::string, gz::transport::Node::Publisher>> packetDropRatePublishers;
     public: std::map<std::string, std::map<std::string, gz::transport::Node::Publisher>> pathLossPublishers;
+    public: std::map<std::string, std::map<std::string, gz::transport::Node::Publisher>> RSSPublishers;
+    public: std::map<std::string, std::map<std::string, gz::transport::Node::Publisher>> DelayPublishers;
+    public: std::map<std::string, std::map<std::string, gz::transport::Node::Publisher>> BandwidthPublishers;
   };
 
   // This is the main plugin's class. It must inherit from System and at least

@@ -74,11 +74,17 @@ void CommsEmulatorHelper::Configure(const gz::sim::Entity &_entity,
       std::string topicPER = "/robot_comms_emu_helper/" + robot1 + "_to_" + robot2 + "/packet_error_rate";
       std::string topicPDR = "/robot_comms_emu_helper/" + robot1 + "_to_" + robot2 + "/packet_drop_rate";
       std::string topicPathLoss = "/robot_comms_emu_helper/" + robot1 + "_to_" + robot2 + "/path_loss";
+      std::string topicRSS = "/robot_comms_emu_helper/" + robot1 + "_to_" + robot2 + "/rx_strength";
+      std::string topicDelay = "/robot_comms_emu_helper/" + robot1 + "_to_" + robot2 + "/delay";
+      std::string topicBandwidth = "/robot_comms_emu_helper/" + robot1 + "_to_" + robot2 + "/bandwidth";
 
       // Create publishers and store them
       this->dataPtr->packetErrorRatePublishers[robot1][robot2] = this->dataPtr->node.Advertise<gz::msgs::Double>(topicPER, options);
       this->dataPtr->packetDropRatePublishers[robot1][robot2] = this->dataPtr->node.Advertise<gz::msgs::Double>(topicPDR, options);
       this->dataPtr->pathLossPublishers[robot1][robot2] = this->dataPtr->node.Advertise<gz::msgs::Double>(topicPathLoss, options);
+      this->dataPtr->RSSPublishers[robot1][robot2] = this->dataPtr->node.Advertise<gz::msgs::Double>(topicRSS, options);
+      this->dataPtr->DelayPublishers[robot1][robot2] = this->dataPtr->node.Advertise<gz::msgs::Double>(topicDelay, options);
+      this->dataPtr->BandwidthPublishers[robot1][robot2] = this->dataPtr->node.Advertise<gz::msgs::Double>(topicBandwidth, options);
     }
   }
 }
@@ -534,7 +540,45 @@ void CommsEmulatorHelper::PostUpdate(const gz::sim::UpdateInfo &_info,
           this->dataPtr->pathLossPublishers[name1][name2].Publish(msgPathLoss);
           //igndbg << "Path Loss:" << name1 << " and " << name2 << " : " << pathLoss << std::endl;
       }
-      
+
+      // Publish Rx Signal Strength
+      gz::msgs::Double msgRSS;
+      msgRSS.set_data(rxPower);
+
+      // Publish to corresponding topics if publishers exist
+      if (this->dataPtr->RSSPublishers.count(name1) > 0 &&
+          this->dataPtr->RSSPublishers[name1].count(name2) > 0) 
+      {
+          this->dataPtr->RSSPublishers[name1][name2].Publish(msgRSS);
+          //igndbg << "RSS:" << name1 << " and " << name2 << " : " << rxPower << std::endl;
+      }
+
+      // Publish Delay
+      gz::msgs::Double msgDelay;
+      // https://www.researchgate.net/publication/352329230_Development_of_Wi-Fi-Based_Teleoperation_System_for_Forest_Harvester
+      double Delay = 2.5; //ms
+      msgDelay.set_data(Delay);
+
+      // Publish to corresponding topics if publishers exist
+      if (this->dataPtr->DelayPublishers.count(name1) > 0 &&
+          this->dataPtr->DelayPublishers[name1].count(name2) > 0) 
+      {
+          this->dataPtr->DelayPublishers[name1][name2].Publish(msgDelay);
+          //igndbg << "Delay (ms):" << name1 << " and " << name2 << " : " << Delay << std::endl;
+      }
+
+      // Publish Bandwidth
+      gz::msgs::Double msgBandwidth;
+      double Bandwidth = 72; //Mbps
+      msgBandwidth.set_data(Bandwidth);
+
+      // Publish to corresponding topics if publishers exist
+      if (this->dataPtr->BandwidthPublishers.count(name1) > 0 &&
+          this->dataPtr->BandwidthPublishers[name1].count(name2) > 0) 
+      {
+          this->dataPtr->BandwidthPublishers[name1][name2].Publish(msgBandwidth);
+          //igndbg << "Bandwidth (Mbps):" << name1 << " and " << name2 << " : " << Bandwidth << std::endl;
+      }
     }
   }
 

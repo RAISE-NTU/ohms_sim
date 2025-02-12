@@ -195,9 +195,19 @@ double CalculateMAITURPathLoss(double distance)
 }
 
 // Calculate Free Space Path Loss, according to https://ieeexplore.ieee.org/document/9260568
-double CalculateTreePathLoss(double Po, double distance, double numTrees, double Lv) 
+double CalculateTreePathLoss(double distance, double numTrees) 
 {
-    return Po + 20 * std::log10(distance) + numTrees * Lv;
+  double Po = 49.17; // RF power (Output Power)=17 dBm, Antenna Gain=1.5 dBi, Tx Power=17+1.5=18.5 dBm, RSSI 1m = -30.67 dBm
+  double Lv = 11.98; // Tree attenuation in dB
+  double sigma = 4.8;    // Standard deviation (dB) 
+
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::normal_distribution<double> dist(0.0, sigma);
+  double randomOffset = dist(gen);
+
+
+  return Po + 20 * std::log10(distance) + numTrees * Lv + randomOffset;
 }
 
 // Convert dBm to Power
@@ -427,10 +437,12 @@ void CommsEmulatorHelper::PostUpdate(const gz::sim::UpdateInfo &_info,
         // Method 4:
           //pathLoss = 49.17 - 20 * std::log10(distance);
         // Method 5:
-          envNetworkConfig.setL0(50.0);
-          envNetworkConfig.setFadingExponent(3.5);
-          envNetworkConfig.setVariance(4.4);
-          pathLoss = CalculatePathLossWithVariance(distance, envNetworkConfig);
+          // envNetworkConfig.setL0(50.0);
+          // envNetworkConfig.setFadingExponent(3.5);
+          // envNetworkConfig.setVariance(4.4);
+          // pathLoss = CalculatePathLossWithVariance(distance, envNetworkConfig);
+        // Method 6:
+          pathLoss = CalculateTreePathLoss(distance, treesOnLink);
       }
 
       if (treesOnLink > 0)
@@ -448,10 +460,12 @@ void CommsEmulatorHelper::PostUpdate(const gz::sim::UpdateInfo &_info,
         // Method 4:
           //pathLoss = 49.17 - 20 * std::log10(distance) + 11.98 * treesOnLink;
         // Method 5:
-          envNetworkConfig.setL0(40.0);
-          envNetworkConfig.setFadingExponent(2.5);
-          envNetworkConfig.setVariance(4.4);
-          pathLoss = CalculatePathLossWithVariance(distance, envNetworkConfig) + 12 * treesOnLink;
+          // envNetworkConfig.setL0(40.0);
+          // envNetworkConfig.setFadingExponent(2.5);
+          // envNetworkConfig.setVariance(4.4);
+          // pathLoss = CalculatePathLossWithVariance(distance, envNetworkConfig) + 12 * treesOnLink;
+        // Method 6:
+          pathLoss = CalculateTreePathLoss(distance, treesOnLink);
       }
 
       // Calculate received power

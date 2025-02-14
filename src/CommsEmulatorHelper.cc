@@ -130,6 +130,31 @@ void CommsEmulatorHelper::Update(const gz::sim::UpdateInfo &_info,
   // For future use maybe.
 }
 
+// Function to calculate max range using path loss model
+// Calculates the maximum range (in metres) for a required SNR of 25 dB
+// https://ieeexplore.ieee.org/document/7165025 path loss model equation 1 and 2.
+double CalculateMaxRange(double VD, RobotNetworkConfig robotNetworkConfig)
+{
+    double d0 = 1;      // Reference distance in metres
+    double Pt = robotNetworkConfig.getTxPower() ;      // Transmit power in dBm
+    const double requiredSNR = 25.0; // Required SNR in dB
+    double N = robotNetworkConfig.getAntennaNoiseFloor();       // Noise floor in dBm
+    double PL_d0 = -0.82*VD+40.1;   // Path loss at the reference distance in dB
+    double n = 0.1717*VD+2.2043;      // Path loss exponent
+
+    // Calculate the exponent term in the formula:
+    // exponent = (Pt - N - requiredSNR - PL_d0) / (10 * n)
+    double exponent = (Pt - N - requiredSNR - PL_d0) / (10.0 * n);
+
+     // Random number generation for variance
+     std::random_device rd;         
+     std::mt19937 gen(rd());          
+     std::normal_distribution<> noise(0.0, 4.4);
+
+    // Calculate and return the maximum range:
+    return d0 * std::pow(10.0, exponent) + noise(gen);
+}
+
 // Function to calculate path loss with variance
 double CalculatePathLossWithVariance(double distance, const EnvNetworkConfig &networkConfig) 
 {
@@ -504,7 +529,14 @@ void CommsEmulatorHelper::PostUpdate(const gz::sim::UpdateInfo &_info,
       // I am choosing 25 dBm since the environment is not ideal
       // From IEEE 802.11 standard PER should be 8% or 10% to achieve comms however, this is included in the above requirement 
       // so not considering now.
-      if (SNR < 25) 
+
+      // max range calculation using path loss model
+      double maxRange = 0.0;
+      double VD = 3.0; // TD = 0.1 trees per square meter, D = 30 cm (VD = TD.D)
+
+      maxRange = CalculateMaxRange(VD, robotNetworkConfig);
+
+      if (SNR < 25 && distance > maxRange) 
       {
         gz::msgs::Double msgPDR;
         msgPDR.set_data(1.0);

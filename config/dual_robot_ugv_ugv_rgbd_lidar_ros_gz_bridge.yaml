@@ -8,28 +8,47 @@
   gz_type_name: "ignition.msgs.PointCloudPacked"
   direction: GZ_TO_ROS
 
-- ros_topic_name: "atlas/rgbd_points"
+- ros_topic_name: "atlas/rgbd_camera/points"
   gz_topic_name: "atlas/rgbd_camera/points"
   ros_type_name: "sensor_msgs/msg/PointCloud2"
   gz_type_name: "ignition.msgs.PointCloudPacked"
   direction: GZ_TO_ROS
 
-- ros_topic_name: "atlas/rgbd_camera_info"
+- ros_topic_name: "atlas/rgbd_camera/camera_info"
   gz_topic_name: "atlas/rgbd_camera/camera_info"
   ros_type_name: "sensor_msgs/msg/CameraInfo"
   gz_type_name: "ignition.msgs.CameraInfo"
   direction: GZ_TO_ROS
 
-- ros_topic_name: "atlas/rgbd_camera_image"
+- ros_topic_name: "atlas/rgbd_camera/image"
   gz_topic_name: "atlas/rgbd_camera/image"
   ros_type_name: "sensor_msgs/msg/Image"
   gz_type_name: "ignition.msgs.Image"
   direction: GZ_TO_ROS
 
-- ros_topic_name: "atlas/rgbd_camera_depth_image"
+- ros_topic_name: "atlas/rgbd_camera/depth_image"
   gz_topic_name: "atlas/rgbd_camera/depth_image"
   ros_type_name: "sensor_msgs/msg/Image"
   gz_type_name: "ignition.msgs.Image"
+  direction: GZ_TO_ROS
+
+# atlas segmentation camera (labels and colored maps)
+- ros_topic_name: "atlas/segmentation/labels"
+  gz_topic_name: "atlas/segmentation_camera/image/labels_map"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "ignition.msgs.Image"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "atlas/segmentation/colored"
+  gz_topic_name: "atlas/segmentation_camera/image/colored_map"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "ignition.msgs.Image"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "atlas/segmentation/camera_info"
+  gz_topic_name: "atlas/segmentation_camera/image/camera_info"
+  ros_type_name: "sensor_msgs/msg/CameraInfo"
+  gz_type_name: "ignition.msgs.CameraInfo"
   direction: GZ_TO_ROS
 
 - ros_topic_name: "atlas/imu/data"
@@ -63,28 +82,47 @@
   gz_type_name: "ignition.msgs.PointCloudPacked"
   direction: GZ_TO_ROS
 
-- ros_topic_name: "bestla/rgbd_points"
+- ros_topic_name: "bestla/rgbd_camera/points"
   gz_topic_name: "bestla/rgbd_camera/points"
   ros_type_name: "sensor_msgs/msg/PointCloud2"
   gz_type_name: "ignition.msgs.PointCloudPacked"
   direction: GZ_TO_ROS
 
-- ros_topic_name: "bestla/rgbd_camera_info"
+- ros_topic_name: "bestla/rgbd_camera/camera_info"
   gz_topic_name: "bestla/rgbd_camera/camera_info"
   ros_type_name: "sensor_msgs/msg/CameraInfo"
   gz_type_name: "ignition.msgs.CameraInfo"
   direction: GZ_TO_ROS
 
-- ros_topic_name: "bestla/rgbd_camera_image"
+- ros_topic_name: "bestla/rgbd_camera/image"
   gz_topic_name: "bestla/rgbd_camera/image"
   ros_type_name: "sensor_msgs/msg/Image"
   gz_type_name: "ignition.msgs.Image"
   direction: GZ_TO_ROS
 
-- ros_topic_name: "bestla/rgbd_camera_depth_image"
+- ros_topic_name: "bestla/rgbd_camera/depth_image"
   gz_topic_name: "bestla/rgbd_camera/depth_image"
   ros_type_name: "sensor_msgs/msg/Image"
   gz_type_name: "ignition.msgs.Image"
+  direction: GZ_TO_ROS
+
+# bestla segmentation camera (labels and colored maps)
+- ros_topic_name: "bestla/segmentation/labels"
+  gz_topic_name: "bestla/segmentation_camera/image/labels_map"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "ignition.msgs.Image"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "bestla/segmentation/colored"
+  gz_topic_name: "bestla/segmentation_camera/image/colored_map"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "ignition.msgs.Image"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "bestla/segmentation/camera_info"
+  gz_topic_name: "bestla/segmentation_camera/image/camera_info"
+  ros_type_name: "sensor_msgs/msg/CameraInfo"
+  gz_type_name: "ignition.msgs.CameraInfo"
   direction: GZ_TO_ROS
 
 - ros_topic_name: "bestla/imu/data"

@@ -13,6 +13,7 @@
   gz_type_name: "ignition.msgs.Image"
   direction: GZ_TO_ROS
 
+
 - ros_topic_name: "rgbd_camera/points"
   gz_topic_name: "rgbd_camera/points"
   ros_type_name: "sensor_msgs/msg/PointCloud2"
@@ -21,6 +22,25 @@
 
 - ros_topic_name: "rgbd_camera/camera_info"
   gz_topic_name: "rgbd_camera/camera_info"
+  ros_type_name: "sensor_msgs/msg/CameraInfo"
+  gz_type_name: "ignition.msgs.CameraInfo"
+  direction: GZ_TO_ROS
+
+# Segmentation camera (labels and colored maps)
+- ros_topic_name: "segmentation/labels"
+  gz_topic_name: "segmentation_camera/image/labels_map"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "ignition.msgs.Image"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "segmentation/colored"
+  gz_topic_name: "segmentation_camera/image/colored_map"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "ignition.msgs.Image"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "segmentation/camera_info"
+  gz_topic_name: "segmentation_camera/image/camera_info"
   ros_type_name: "sensor_msgs/msg/CameraInfo"
   gz_type_name: "ignition.msgs.CameraInfo"
   direction: GZ_TO_ROS

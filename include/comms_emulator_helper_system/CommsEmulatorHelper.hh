@@ -1,4 +1,3 @@
-
 #ifndef COMMS_EMULATOR_HELPER_SYSTEM__COMMS_EMULATOR_HELPER_HH_
 #define COMMS_EMULATOR_HELPER_SYSTEM__COMMS_EMULATOR_HELPER_HH_
 
@@ -8,11 +7,13 @@
 
 // For this plugin
 #include <gz/transport/Node.hh>
-#include <gz/msgs/pose_v.pb.h> 
+#include <gz/msgs/pose_v.pb.h>
 #include <memory>
 #include <mutex>
 #include <map>
-#include <algorithm> 
+#include <deque>
+#include <algorithm>
+#include <cmath>
 
 namespace comms_emulator_helper_system
 {
@@ -37,7 +38,7 @@ namespace comms_emulator_helper_system
       double getY() const { return y_; }
       double getZ() const { return z_; }
 
-      // ** Euclidean distance between two Position objects **
+      // Euclidean distance between two Position objects
       double distanceTo(const Position& other) const 
       {
           return std::sqrt(
@@ -47,37 +48,37 @@ namespace comms_emulator_helper_system
           );
       }
 
-      // **Vector subtraction**
+      // Vector subtraction
       Position operator-(const Position &other) const 
       {
           return Position(this->x_ - other.x_, this->y_ - other.y_, this->z_ - other.z_);
       }
 
-      // **Dot product**
+      // Dot product
       double dot(const Position &other) const 
       {
           return this->x_ * other.x_ + this->y_ * other.y_ + this->z_ * other.z_;
       }
 
-      // **Squared length of the vector**
+      // Squared length of the vector
       double squaredLength() const 
       {
           return x_ * x_ + y_ * y_ + z_ * z_;
       }
 
-      // **2D Vector subtraction**
+      // 2D Vector subtraction
       Position subtract2D(const Position &other) const 
       {
           return Position(this->x_ - other.x_, this->y_ - other.y_, 0.0);
       }
 
-      // **2D Dot product**
+      // 2D Dot product
       double dot2D(const Position &other) const 
       {
           return this->x_ * other.x_ + this->y_ * other.y_;
       }
 
-      // **Squared length of the vector in 2D**
+      // Squared length of the vector in 2D
       double squaredLength2D() const 
       {
           return x_ * x_ + y_ * y_;
@@ -94,7 +95,7 @@ namespace comms_emulator_helper_system
   {
   public:
       // Antenna noise floor is taken from https://www.montana.edu/aolson/ee447/EB%20and%20NO.pdf for 802.11n wifi 
-      // This should come from antenna specs, for now let's keep this.
+      // This should come from antenna specs; for now, let's keep this.
       RobotNetworkConfig(double txPower = 30.0, double antennaNoiseFloor = -101.0) 
           : txPower_(txPower), antennaNoiseFloor_(antennaNoiseFloor) {}
 
@@ -133,17 +134,22 @@ namespace comms_emulator_helper_system
   /// \brief Private data class for CommsEmulatorHelper
   class CommsEmulatorHelperPrivate
   {
-    public: gz::transport::Node node;  // Transport node for communication
-    public: ignition::msgs::Pose_V receivedData;  // Data from subscription
-    public: std::mutex dataMutex;  // Mutex to protect access to the received data
-    public: std::map<std::string, Position> robotPositions; // Map to store positions by robot name
-    public: std::map<std::string, Position> treePositions; // Map to store tree positions
-    public: std::map<std::string, std::map<std::string, gz::transport::Node::Publisher>> packetErrorRatePublishers;
-    public: std::map<std::string, std::map<std::string, gz::transport::Node::Publisher>> packetDropRatePublishers;
-    public: std::map<std::string, std::map<std::string, gz::transport::Node::Publisher>> pathLossPublishers;
-    public: std::map<std::string, std::map<std::string, gz::transport::Node::Publisher>> RSSPublishers;
-    public: std::map<std::string, std::map<std::string, gz::transport::Node::Publisher>> DelayPublishers;
-    public: std::map<std::string, std::map<std::string, gz::transport::Node::Publisher>> BandwidthPublishers;
+    public:
+      gz::transport::Node node;  // Transport node for communication
+      ignition::msgs::Pose_V receivedData;  // Data from subscription
+      std::mutex dataMutex;  // Mutex to protect access to the received data
+      std::map<std::string, Position> robotPositions; // Map to store positions by robot name
+      std::map<std::string, Position> treePositions; // Map to store tree positions
+      std::map<std::string, std::map<std::string, gz::transport::Node::Publisher>> packetErrorRatePublishers;
+      std::map<std::string, std::map<std::string, gz::transport::Node::Publisher>> packetDropRatePublishers;
+      std::map<std::string, std::map<std::string, gz::transport::Node::Publisher>> pathLossPublishers;
+      std::map<std::string, std::map<std::string, gz::transport::Node::Publisher>> RSSPublishers;
+      std::map<std::string, std::map<std::string, gz::transport::Node::Publisher>> DelayPublishers;
+      std::map<std::string, std::map<std::string, gz::transport::Node::Publisher>> BandwidthPublishers;
+      
+      // New members for SNR history and previous bandwidth state per robot pair
+      std::map<std::string, std::map<std::string, std::deque<double>>> snrHistory;
+      std::map<std::string, std::map<std::string, double>> prevBandwidth;
   };
 
   // This is the main plugin's class. It must inherit from System and at least
@@ -158,42 +164,24 @@ namespace comms_emulator_helper_system
     public gz::sim::ISystemUpdate,
     public gz::sim::ISystemPostUpdate
   {
-    //Constructor
     public: CommsEmulatorHelper();
 
-    // Plugins inheriting ISystemConfigure must implement the Configure 
-    // callback. This is called when a system is initially loaded. 
-    // The _entity variable contains the entity that the system is attached to
-    // The _element variable contains the sdf Element with custom configuration
-    // The _ecm provides an interface to all entities and components
-    // The _eventManager provides a mechanism for registering internal signals
+    // Plugins inheriting ISystemConfigure must implement the Configure callback.
     public: void Configure(
                 const gz::sim::Entity &_entity,
                 const std::shared_ptr<const sdf::Element> &_element,
                 gz::sim::EntityComponentManager &_ecm,
                 gz::sim::EventManager &_eventManager) override;
 
-    // Plugins inheriting ISystemPreUpdate must implement the PreUpdate
-    // callback. This is called at every simulation iteration before the physics
-    // updates the world. The _info variable provides information such as time,
-    // while the _ecm provides an interface to all entities and components in
-    // simulation.
+    // Plugins inheriting ISystemPreUpdate must implement the PreUpdate callback.
     public: void PreUpdate(const gz::sim::UpdateInfo &_info,
                 gz::sim::EntityComponentManager &_ecm) override;
 
-    // Plugins inheriting ISystemUpdate must implement the Update
-    // callback. This is called at every simulation iteration before the physics
-    // updates the world. The _info variable provides information such as time,
-    // while the _ecm provides an interface to all entities and components in
-    // simulation.
+    // Plugins inheriting ISystemUpdate must implement the Update callback.
     public: void Update(const gz::sim::UpdateInfo &_info,
                 gz::sim::EntityComponentManager &_ecm) override;
 
-    // Plugins inheriting ISystemPostUpdate must implement the PostUpdate
-    // callback. This is called at every simulation iteration after the physics
-    // updates the world. The _info variable provides information such as time,
-    // while the _ecm provides an interface to all entities and components in
-    // simulation.
+    // Plugins inheriting ISystemPostUpdate must implement the PostUpdate callback.
     public: void PostUpdate(const gz::sim::UpdateInfo &_info,
                 const gz::sim::EntityComponentManager &_ecm) override;
 
@@ -203,7 +191,7 @@ namespace comms_emulator_helper_system
     // Declare dataPtr in the class
     private:
       std::unique_ptr<CommsEmulatorHelperPrivate> dataPtr;  
-
   };
 }
+
 #endif

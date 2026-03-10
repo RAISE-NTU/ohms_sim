@@ -25,8 +25,22 @@ target_include_directories(
 target_link_libraries(CommsEmulatorHelper PRIVATE
   ignition-gazebo${GZ_SIM_VER}::ignition-gazebo${GZ_SIM_VER})
 
+# Add WorldQuerySystem library
+add_library(WorldQuerySystem
+  SHARED
+  src/WorldQuerySystem.cc
+)
+
+target_include_directories(
+  WorldQuerySystem PRIVATE include
+)
+
+target_link_libraries(WorldQuerySystem PRIVATE
+  ignition-gazebo${GZ_SIM_VER}::ignition-gazebo${GZ_SIM_VER})
+
 install(TARGETS
   CommsEmulatorHelper
+  WorldQuerySystem
   DESTINATION lib/${PROJECT_NAME}
 )
 

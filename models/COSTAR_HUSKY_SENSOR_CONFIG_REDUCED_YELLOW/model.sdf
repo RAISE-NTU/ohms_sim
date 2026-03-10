@@ -1,4 +1,3 @@
-<?xml version='1.0' encoding='utf-8'?>
 <sdf version="1.6">
   <model name="costar_husky_sensor_config_reduced">
     <link name="base_link">
@@ -95,6 +94,9 @@
             <uri>meshes/base_link.dae</uri>
           </mesh>
         </geometry>
+        <plugin filename="ignition-gazebo-label-system" name="ignition::gazebo::systems::Label">
+          <label>6</label>
+        </plugin>
       </visual>
       <visual name="base_link_fixed_joint_lump__camera/camera_link_visual_1">
         <pose frame="">0.438 0 0.272 0 -0 0</pose>
@@ -103,6 +105,9 @@
             <uri>meshes/realsense.dae</uri>
           </mesh>
         </geometry>
+        <plugin filename="ignition-gazebo-label-system" name="ignition::gazebo::systems::Label">
+          <label>6</label>
+        </plugin>
       </visual>
       <visual name="base_link_fixed_joint_lump__cliff_sensor_link_visual_2">
         <pose frame="">0.435 0 0.235 -2.35619 -0 -1.5708</pose>
@@ -112,6 +117,9 @@
             <radius>0.005</radius>
           </cylinder>
         </geometry>
+        <plugin filename="ignition-gazebo-label-system" name="ignition::gazebo::systems::Label">
+          <label>6</label>
+        </plugin>
       </visual>
       <visual name="base_link_fixed_joint_lump__front_bumper_link_visual_3">
         <pose frame="">0.48 0 0.091 0 -0 0</pose>
@@ -121,6 +129,9 @@
             <uri>meshes/bumper.dae</uri>
           </mesh>
         </geometry>
+        <plugin filename="ignition-gazebo-label-system" name="ignition::gazebo::systems::Label">
+          <label>6</label>
+        </plugin>
       </visual>
       <visual name="base_link_fixed_joint_lump__rear_bumper_link_visual_4">
         <pose frame="">-0.48 0 0.091 0 -0 3.14159</pose>
@@ -130,6 +141,9 @@
             <uri>meshes/bumper.dae</uri>
           </mesh>
         </geometry>
+        <plugin filename="ignition-gazebo-label-system" name="ignition::gazebo::systems::Label">
+          <label>6</label>
+        </plugin>
       </visual>
       <visual name="base_link_fixed_joint_lump__top_chassis_link_visual_5">
         <pose frame="">0 0 0 0 -0 0</pose>
@@ -139,6 +153,9 @@
             <uri>meshes/top_chassis.dae</uri>
           </mesh>
         </geometry>
+        <plugin filename="ignition-gazebo-label-system" name="ignition::gazebo::systems::Label">
+          <label>6</label>
+        </plugin>
       </visual>
       <visual name="base_link_fixed_joint_lump__top_plate_link_visual_6">
         <pose frame="">0.0812 0 0.245 0 -0 0</pose>
@@ -148,6 +165,9 @@
             <uri>meshes/top_plate.dae</uri>
           </mesh>
         </geometry>
+        <plugin filename="ignition-gazebo-label-system" name="ignition::gazebo::systems::Label">
+          <label>6</label>
+        </plugin>
       </visual>
       <visual name="base_link_fixed_joint_lump__arch_visual_7">
         <pose frame="">0.0012 0 0.251 0 -0 0</pose>
@@ -162,6 +182,9 @@
           <diffuse>0.45 0.45 0.45 1</diffuse>
           <specular>0.8 0.8 0.8 1.0</specular>
         </material>
+        <plugin filename="ignition-gazebo-label-system" name="ignition::gazebo::systems::Label">
+          <label>6</label>
+        </plugin>
       </visual>
       <visual name="base_link_fixed_joint_lump__velodyne_base_link_visual_10">
         <pose frame="">0.0012 0 0.6783 0 -0 0</pose>
@@ -171,6 +194,9 @@
             <uri>meshes/VLP16_base_1.dae</uri>
           </mesh>
         </geometry>
+        <plugin filename="ignition-gazebo-label-system" name="ignition::gazebo::systems::Label">
+          <label>6</label>
+        </plugin>
       </visual>
       <visual name="base_link_fixed_joint_lump__velodyne_base_link_visual_11">
         <pose frame="">0.0012 0 0.6783 0 -0 0</pose>
@@ -180,6 +206,9 @@
             <uri>meshes/VLP16_base_2.dae</uri>
           </mesh>
         </geometry>
+        <plugin filename="ignition-gazebo-label-system" name="ignition::gazebo::systems::Label">
+          <label>6</label>
+        </plugin>
       </visual>
       <visual name="base_link_fixed_joint_lump__velodyne_visual_12">
         <pose frame="">0.0012 0 0.6783 0 -0 0</pose>
@@ -189,6 +218,9 @@
             <uri>meshes/VLP16_scan.dae</uri>
           </mesh>
         </geometry>
+        <plugin filename="ignition-gazebo-label-system" name="ignition::gazebo::systems::Label">
+          <label>6</label>
+        </plugin>
       </visual>
       <visual name="base_link_fixed_joint_lump__user_rail_link_visual_13">
         <pose frame="">0.272 0 0.245 0 -0 0</pose>
@@ -198,90 +230,102 @@
             <uri>meshes/user_rail.dae</uri>
           </mesh>
         </geometry>
+        <plugin filename="ignition-gazebo-label-system" name="ignition::gazebo::systems::Label">
+          <label>6</label>
+        </plugin>
       </visual>
-      <velocity_decay/>
+      <velocity_decay />
       <self_collide>0</self_collide>
       <enable_wind>0</enable_wind>
       <kinematic>0</kinematic>
-
-    <sensor name="camera_front" type="rgbd_camera">
+      <sensor name="camera_front" type="rgbd_camera">
         <topic>rgbd_camera</topic>
         <ignition_frame_id>realsense</ignition_frame_id>
         <camera name="camera_front">
-            <horizontal_fov>1.0472</horizontal_fov>
-            <lens>
-                <intrinsics>
-                    <fx>277.1</fx>
-                    <fy>277.1</fy>
-                    <cx>160.5</cx>
-                    <cy>120.5</cy>
-                    <s>0</s>
-                </intrinsics>
-            </lens>
-            <distortion>
-                <k1>0.0</k1>
-                <k2>0.0</k2>
-                <k3>0.0</k3>
-                <p1>0.0</p1>
-                <p2>0.0</p2>
-                <center>0.5 0.5</center>
-            </distortion>
-            <image>
-                <width>320</width>
-                <height>240</height>
-                <format>R8G8B8</format>
-            </image>
+          <horizontal_fov>1.0472</horizontal_fov>
+          <lens>
+            <intrinsics>
+              <fx>554.3</fx>
+              <fy>554.3</fy>
+              <cx>320</cx>
+              <cy>240</cy>
+              <s>0</s>
+            </intrinsics>
+          </lens>
+          <distortion>
+            <k1>0.0</k1>
+            <k2>0.0</k2>
+            <k3>0.0</k3>
+            <p1>0.0</p1>
+            <p2>0.0</p2>
+            <center>0.5 0.5</center>
+          </distortion>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.01</near>
+            <far>300</far>
+          </clip>
+          <depth_camera>
             <clip>
-                <near>0.01</near>
-                <far>300</far>
+              <near>0.1</near>
+              <far>10</far>
             </clip>
-            <depth_camera>
-              <clip>
-                <near>0.1</near>
-                <far>10</far>
-              </clip>
-            </depth_camera>
-            <noise>
-                <type>gaussian</type>
-                <mean>0</mean>
-                <stddev>0.00</stddev>
-            </noise>
+          </depth_camera>
+          <noise>
+            <type>gaussian</type>
+            <mean>0</mean>
+            <stddev>0.00</stddev>
+          </noise>
         </camera>
         <always_on>1</always_on>
         <update_rate>5</update_rate>
         <visualize>0</visualize>
         <pose frame="">0.438 0 0.272 0 -0 0</pose>
-      </sensor> 
-      <gravity>1</gravity>
-      <velocity_decay/> 
-
-      <!-- <sensor name="front_cliff_laser" type="gpu_ray">
-          <pose>0.435 0 0.235 0 -2.4434589 0</pose>
-          <update_rate>50</update_rate>
-          <lidar>
-              <scan>
-                  <horizontal>
-                      <samples>1</samples>
-                      <resolution>1</resolution>
-                      <min_angle>3.141592653589793</min_angle>
-                      <max_angle>3.141592653589793</max_angle>
-                  </horizontal>
-              </scan>
-              <range>
-                  <min>0.04</min>
-                  <max>40</max>
-                  <resolution>0.01</resolution>
-              </range>
-              <noise>
-                  <type>gaussian</type>
-                  <mean>0</mean>
-                  <stddev>0.01</stddev>
-              </noise>
-          </lidar>
+      </sensor>
+      <sensor name="segmentation_camera" type="segmentation_camera">
+        <topic>segmentation_camera/image</topic>
+        <ignition_frame_id>realsense</ignition_frame_id>
+        <segmentation_type>semantic</segmentation_type>
+        <camera name="segmentation_camera">
+          <horizontal_fov>1.0472</horizontal_fov>
+          <lens>
+            <intrinsics>
+              <fx>554.3</fx>
+              <fy>554.3</fy>
+              <cx>320</cx>
+              <cy>240</cy>
+              <s>0</s>
+            </intrinsics>
+          </lens>
+          <distortion>
+            <k1>0.0</k1>
+            <k2>0.0</k2>
+            <k3>0.0</k3>
+            <p1>0.0</p1>
+            <p2>0.0</p2>
+            <center>0.5 0.5</center>
+          </distortion>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>L8</format>
+          </image>
+          <clip>
+            <near>0.01</near>
+            <far>300</far>
+          </clip>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>5</update_rate>
+        <visualize>0</visualize>
+        <pose frame="">0.438 0 0.272 0 -0 0</pose>
       </sensor>
       <gravity>1</gravity>
-      <velocity_decay/> -->
-
+      <velocity_decay />
       <sensor name="front_laser" type="gpu_lidar">
         <topic>laser_scan</topic>
         <ignition_frame_id>velodyne</ignition_frame_id>
@@ -313,45 +357,8 @@
             <stddev>0.01</stddev>
           </noise>
         </lidar>
-        <!-- 15 degrees pitch inclined = 0.261799 -->
         <pose frame="">0.0012 0 0.716 0 0.0 0</pose>
       </sensor>
-
-      <!-- <light name="flashlight_flashlight_light_source_lamp_light" type="spot">
-        <pose frame="">0.48 0.08 0.12 3.141592653589793 1.5707926535897934 -0.0015926535897931</pose>
-        <attenuation>
-          <range>50</range>
-          <linear>0</linear>
-          <constant>0.1</constant>
-          <quadratic>0.0025</quadratic>
-        </attenuation>
-        <diffuse>0.8 0.8 0.5 1</diffuse>
-        <specular>0.8 0.8 0.5 1</specular>
-        <spot>
-          <inner_angle>1.2</inner_angle>
-          <outer_angle>1.3</outer_angle>
-          <falloff>1</falloff>
-        </spot>
-        <direction>0 0 -1</direction>
-      </light> -->
-
-      <!-- <visual name="flashlight_flashlight_light_source_lamp_viz_visual">
-        <pose>0.48 0.08 0.12 3.141592653589793 1.5707926535897934 -0.0015926535897931</pose>
-        <geometry>
-          <cylinder>
-            <radius>0.019</radius>
-            <length>0.005</length>
-          </cylinder>
-        </geometry>
-        <transparency>0</transparency>
-        <material>
-          <ambient>1 1 1 1</ambient>
-          <diffuse>1 1 1 1</diffuse>
-          <specular>1 1 1 1</specular>
-          <emissive>1 1 1 1</emissive>
-        </material>
-      </visual> -->
-
       <sensor name="imu_sensor" type="imu">
         <always_on>0</always_on>
         <update_rate>100</update_rate>
@@ -360,79 +367,78 @@
         <imu>
           <enable_orientation>0</enable_orientation>
           <angular_velocity>
-              <x>
-                  <noise type="gaussian">
-                      <mean>0</mean>
-                      <stddev>0.009</stddev>
-                      <bias_mean>0.00075</bias_mean>
-                      <bias_stddev>0.005</bias_stddev>
-                      <dynamic_bias_stddev>0.00002</dynamic_bias_stddev>
-                      <dynamic_bias_correlation_time>400.0</dynamic_bias_correlation_time>
-                      <precision>0.00025</precision>
-                  </noise>
-              </x>
-              <y>
-                  <noise type="gaussian">
-                      <mean>0</mean>
-                      <stddev>0.009</stddev>
-                      <bias_mean>0.00075</bias_mean>
-                      <bias_stddev>0.005</bias_stddev>
-                      <dynamic_bias_stddev>0.00002</dynamic_bias_stddev>
-                      <dynamic_bias_correlation_time>400.0</dynamic_bias_correlation_time>
-                      <precision>0.00025</precision>
-                  </noise>
-              </y>
-              <z>
-                  <noise type="gaussian">
-                      <mean>0</mean>
-                      <stddev>0.009</stddev>
-                      <bias_mean>0.00075</bias_mean>
-                      <bias_stddev>0.005</bias_stddev>
-                      <dynamic_bias_stddev>0.00002</dynamic_bias_stddev>
-                      <dynamic_bias_correlation_time>400.0</dynamic_bias_correlation_time>
-                      <precision>0.00025</precision>
-                  </noise>
-              </z>
+            <x>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.009</stddev>
+                <bias_mean>0.00075</bias_mean>
+                <bias_stddev>0.005</bias_stddev>
+                <dynamic_bias_stddev>0.00002</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>400.0</dynamic_bias_correlation_time>
+                <precision>0.00025</precision>
+              </noise>
+            </x>
+            <y>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.009</stddev>
+                <bias_mean>0.00075</bias_mean>
+                <bias_stddev>0.005</bias_stddev>
+                <dynamic_bias_stddev>0.00002</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>400.0</dynamic_bias_correlation_time>
+                <precision>0.00025</precision>
+              </noise>
+            </y>
+            <z>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.009</stddev>
+                <bias_mean>0.00075</bias_mean>
+                <bias_stddev>0.005</bias_stddev>
+                <dynamic_bias_stddev>0.00002</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>400.0</dynamic_bias_correlation_time>
+                <precision>0.00025</precision>
+              </noise>
+            </z>
           </angular_velocity>
           <linear_acceleration>
-              <x>
-                  <noise type="gaussian">
-                      <mean>0</mean>
-                      <stddev>0.021</stddev>
-                      <bias_mean>0.05</bias_mean>
-                      <bias_stddev>0.0075</bias_stddev>
-                      <dynamic_bias_stddev>0.000375</dynamic_bias_stddev>
-                      <dynamic_bias_correlation_time>175.0</dynamic_bias_correlation_time>
-                      <precision>0.005</precision>
-                  </noise>
-              </x>
-              <y>
-                  <noise type="gaussian">
-                      <mean>0</mean>
-                      <stddev>0.021</stddev>
-                      <bias_mean>0.05</bias_mean>
-                      <bias_stddev>0.0075</bias_stddev>
-                      <dynamic_bias_stddev>0.000375</dynamic_bias_stddev>
-                      <dynamic_bias_correlation_time>175.0</dynamic_bias_correlation_time>
-                      <precision>0.005</precision>
-                  </noise>
-              </y>
-              <z>
-                  <noise type="gaussian">
-                      <mean>0</mean>
-                      <stddev>0.021</stddev>
-                      <bias_mean>0.05</bias_mean>
-                      <bias_stddev>0.0075</bias_stddev>
-                      <dynamic_bias_stddev>0.000375</dynamic_bias_stddev>
-                      <dynamic_bias_correlation_time>175.0</dynamic_bias_correlation_time>
-                      <precision>0.005</precision>
-                  </noise>
-              </z>
+            <x>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.021</stddev>
+                <bias_mean>0.05</bias_mean>
+                <bias_stddev>0.0075</bias_stddev>
+                <dynamic_bias_stddev>0.000375</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>175.0</dynamic_bias_correlation_time>
+                <precision>0.005</precision>
+              </noise>
+            </x>
+            <y>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.021</stddev>
+                <bias_mean>0.05</bias_mean>
+                <bias_stddev>0.0075</bias_stddev>
+                <dynamic_bias_stddev>0.000375</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>175.0</dynamic_bias_correlation_time>
+                <precision>0.005</precision>
+              </noise>
+            </y>
+            <z>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.021</stddev>
+                <bias_mean>0.05</bias_mean>
+                <bias_stddev>0.0075</bias_stddev>
+                <dynamic_bias_stddev>0.000375</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>175.0</dynamic_bias_correlation_time>
+                <precision>0.005</precision>
+              </noise>
+            </z>
           </linear_acceleration>
         </imu>
       </sensor>
     </link>
-
     <link name="front_left_wheel_link">
       <pose frame="">0.256 0.2854 0.03282 0 -0 0</pose>
       <inertial>
@@ -481,9 +487,12 @@
             <uri>meshes/wheel.dae</uri>
           </mesh>
         </geometry>
+        <plugin filename="ignition-gazebo-label-system" name="ignition::gazebo::systems::Label">
+          <label>6</label>
+        </plugin>
       </visual>
       <gravity>1</gravity>
-      <velocity_decay/>
+      <velocity_decay />
     </link>
     <joint name="front_left_wheel_joint" type="revolute">
       <child>front_left_wheel_link</child>
@@ -549,9 +558,12 @@
             <uri>meshes/wheel.dae</uri>
           </mesh>
         </geometry>
+        <plugin filename="ignition-gazebo-label-system" name="ignition::gazebo::systems::Label">
+          <label>6</label>
+        </plugin>
       </visual>
       <gravity>1</gravity>
-      <velocity_decay/>
+      <velocity_decay />
     </link>
     <joint name="front_right_wheel_joint" type="revolute">
       <child>front_right_wheel_link</child>
@@ -617,9 +629,12 @@
             <uri>meshes/wheel.dae</uri>
           </mesh>
         </geometry>
+        <plugin filename="ignition-gazebo-label-system" name="ignition::gazebo::systems::Label">
+          <label>6</label>
+        </plugin>
       </visual>
       <gravity>1</gravity>
-      <velocity_decay/>
+      <velocity_decay />
     </link>
     <joint name="rear_left_wheel_joint" type="revolute">
       <child>rear_left_wheel_link</child>
@@ -685,9 +700,12 @@
             <uri>meshes/wheel.dae</uri>
           </mesh>
         </geometry>
+        <plugin filename="ignition-gazebo-label-system" name="ignition::gazebo::systems::Label">
+          <label>6</label>
+        </plugin>
       </visual>
       <gravity>1</gravity>
-      <velocity_decay/>
+      <velocity_decay />
     </link>
     <joint name="rear_right_wheel_joint" type="revolute">
       <child>rear_right_wheel_link</child>
@@ -706,16 +724,11 @@
       </axis>
     </joint>
     <static>0</static>
-
-    <!-- Differential drive plugin for rear wheels -->
-    <plugin
-      filename="libignition-gazebo-diff-drive-system.so"
-      name="ignition::gazebo::systems::DiffDrive">
+    <plugin filename="libignition-gazebo-diff-drive-system.so" name="ignition::gazebo::systems::DiffDrive">
       <left_joint>rear_left_wheel_joint</left_joint>
       <left_joint>front_left_wheel_joint</left_joint>
       <right_joint>front_right_wheel_joint</right_joint>
       <right_joint>rear_right_wheel_joint</right_joint>
-      <!-- Actual value of husky 0.5708, we use a different value for better steering -->
       <wheel_separation>0.5708</wheel_separation>
       <wheel_radius>0.1651</wheel_radius>
       <odom_publish_frequency>10</odom_publish_frequency>
@@ -723,17 +736,12 @@
       <max_linear_acceleration>1</max_linear_acceleration>
       <max_angular_acceleration>1</max_angular_acceleration>
     </plugin>
-
-    <!-- ground truth odometry plugin -->
-    <plugin
-      filename="libignition-gazebo-odometry-publisher-system.so"
-      name="ignition::gazebo::systems::OdometryPublisher">
+    <plugin filename="libignition-gazebo-odometry-publisher-system.so" name="ignition::gazebo::systems::OdometryPublisher">
       <dimensions>3</dimensions>
       <odom_publish_frequency>100.0</odom_publish_frequency>
       <odom_topic>odom_ground_truth</odom_topic>
       <odom_frame>map</odom_frame>
       <robot_base_frame>base_link</robot_base_frame>
     </plugin>
-
   </model>
 </sdf>

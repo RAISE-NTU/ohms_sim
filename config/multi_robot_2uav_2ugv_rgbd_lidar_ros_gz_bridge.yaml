@@ -32,6 +32,25 @@
   gz_type_name: "ignition.msgs.Image"
   direction: GZ_TO_ROS
 
+# atlas segmentation camera (labels and colored maps)
+- ros_topic_name: "atlas/segmentation_labels"
+  gz_topic_name: "atlas/segmentation_camera/image/labels_map"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "ignition.msgs.Image"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "atlas/segmentation_colored"
+  gz_topic_name: "atlas/segmentation_camera/image/colored_map"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "ignition.msgs.Image"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "atlas/segmentation_camera_info"
+  gz_topic_name: "atlas/segmentation_camera/image/camera_info"
+  ros_type_name: "sensor_msgs/msg/CameraInfo"
+  gz_type_name: "ignition.msgs.CameraInfo"
+  direction: GZ_TO_ROS
+
 - ros_topic_name: "atlas/imu/data"
   gz_topic_name: "atlas/imu/data"
   ros_type_name: "sensor_msgs/msg/Imu"
@@ -85,6 +104,25 @@
   gz_topic_name: "bestla/rgbd_camera/depth_image"
   ros_type_name: "sensor_msgs/msg/Image"
   gz_type_name: "ignition.msgs.Image"
+  direction: GZ_TO_ROS
+
+# bestla segmentation camera (labels and colored maps)
+- ros_topic_name: "bestla/segmentation_labels"
+  gz_topic_name: "bestla/segmentation_camera/image/labels_map"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "ignition.msgs.Image"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "bestla/segmentation_colored"
+  gz_topic_name: "bestla/segmentation_camera/image/colored_map"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "ignition.msgs.Image"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "bestla/segmentation_camera_info"
+  gz_topic_name: "bestla/segmentation_camera/image/camera_info"
+  ros_type_name: "sensor_msgs/msg/CameraInfo"
+  gz_type_name: "ignition.msgs.CameraInfo"
   direction: GZ_TO_ROS
 
 - ros_topic_name: "bestla/imu/data"

@@ -1,0 +1,26 @@
+<sdf version="1.9">
+  <model name="pine_scot">
+    <static>true</static>
+    <link name="pinelink">
+      <visual name="pine_sapling_small_b">
+        <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label">
+          <label>8</label>
+        </plugin>
+        <geometry>
+          <mesh>
+            <uri>meshes/scot_pine/Scot_pine.dae</uri>
+            <scale>2 2 2</scale>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>meshes/scot_pine/Scot_pine.dae</uri>
+            <scale>2 2 2</scale>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>

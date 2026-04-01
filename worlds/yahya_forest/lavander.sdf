@@ -1,0 +1,25 @@
+<sdf version="1.9">
+  <model name="lavander">
+    <static>true</static>
+    <link name="lavander_link">
+      <visual name="lavander_visual">
+        <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label">
+          <label>10</label>
+        </plugin>
+        <geometry>
+          <mesh>
+            <uri>meshes/lavander/lavander.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="lavander_collision">
+        <geometry>
+          <mesh>
+            <uri>meshes/lavander/lavander.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <pose>0 0 0 0 0 0</pose>
+  </model>
+</sdf>

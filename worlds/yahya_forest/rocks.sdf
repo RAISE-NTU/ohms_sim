@@ -1,0 +1,25 @@
+<sdf version="1.9">
+  <model name="rocks">
+    <static>true</static>
+    <link name="rocks_link">
+      <visual name="rocks_visual">
+        <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label">
+          <label>7</label>
+        </plugin>
+        <geometry>
+          <mesh>
+            <uri>meshes/rocks/model.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="rocks_collision">
+        <geometry>
+          <mesh>
+            <uri>meshes/rocks/model.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <pose>0 0 0 0 0 0</pose>
+  </model>
+</sdf>

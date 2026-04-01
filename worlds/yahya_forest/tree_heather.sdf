@@ -1,0 +1,25 @@
+<sdf version="1.9">
+  <model name="tree_heather">
+    <static>true</static>
+    <link name="tree_heather_link">
+      <visual name="tree_heather_visual">
+        <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label">
+          <label>3</label>
+        </plugin>
+        <geometry>
+          <mesh>
+            <uri>meshes/tree_heather/tree_heather.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="tree_heather_collision">
+        <geometry>
+          <mesh>
+            <uri>meshes/tree_heather/tree_heather.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <pose>0 0 0 0 0 0</pose>
+  </model>
+</sdf>

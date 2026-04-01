@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.9">
+  <world name="my_world"><gravity>0 0 -9.8</gravity>
+    <physics type="ode">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.5 0.5 0.5 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>true</shadows>
+      <sky>
+        <clouds>
+          <speed>12</speed>
+        </clouds>
+      </sky>
+      <grid>false</grid>
+      <origin_visual>false</origin_visual>
+    </scene>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type="adiabatic" />
+    <light name="sun" type="directional">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 100 0 0 0</pose>
+      <diffuse>0.9 0.9 0.9 1</diffuse>
+      <specular>0.3 0.3 0.3 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/meshes/map_model.sdf</uri><name>my_map</name><pose>0 0 -2.62235 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/rocks.sdf</uri><name>my_rocks</name><pose>0 0 -2 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/rocks.sdf</uri><name>my_rocks_1</name><pose>7.264 -0.808 -1.94 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/rocks.sdf</uri><name>my_rocks_2</name><pose>18.962 -13.112 -1.80 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/rocks.sdf</uri><name>my_rocks_3</name><pose>16.236 20.662 2.4 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/rocks.sdf</uri><name>my_rocks_4</name><pose>65.506 31.858 2.4 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/rocks.sdf</uri><name>my_rocks_5</name><pose>40.268 -4.729 -2.1 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/rocks.sdf</uri><name>my_rocks_6</name><pose>12.273 37.521 4.0 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/rocks.sdf</uri><name>my_rocks_7</name><pose>66.054 16.437 -0.90 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/rocks.sdf</uri><name>my_rocks_8</name><pose>62.607 -24.749 1.2 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/rocks.sdf</uri><name>my_rocks_9</name><pose>50.163 33.35 2 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/rocks.sdf</uri><name>my_rocks_10</name><pose>-12.83 13.03 -0.65 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/rocks.sdf</uri><name>my_rocks_11</name><pose>16.414 8.912 -1.2 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/rocks.sdf</uri><name>my_rocks_12</name><pose>-2.999 14.624 0.8 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/rocks.sdf</uri><name>my_rocks_13</name><pose>56.411 25.554 1.6 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/rocks.sdf</uri><name>my_rocks_14</name><pose>39.49 -32.96 0.75 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_redgum.sdf</uri><name>my_euca_redgum</name><pose>61.886 -36.58 8 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_redgum.sdf</uri><name>my_euca_redgum_1</name><pose>31.043 -28.313 7.214 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_redgum.sdf</uri><name>my_euca_redgum_1_1</name><pose>44.346 -37.792 8.627 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_redgum.sdf</uri><name>my_euca_redgum_1_2</name><pose>48.731 -21.382 6.215 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_redgum.sdf</uri><name>my_euca_redgum_1_3</name><pose>19.088 -14.9 5.329 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_redgum.sdf</uri><name>my_euca_redgum_2</name><pose>39.496 -34.5 8 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_redgum.sdf</uri><name>my_euca_redgum_3</name><pose>17.177 -18.813 6.022 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_redgum.sdf</uri><name>my_euca_redgum_4</name><pose>67.869 -22.939 8 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_redgum.sdf</uri><name>my_euca_redgum_5</name><pose>56.266 9.656 7.1 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_redgum.sdf</uri><name>my_euca_redgum_6</name><pose>73.46 35.793 7.171 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_redgum.sdf</uri><name>my_euca_redgum_7</name><pose>41.7 -27.5 6.039 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_redgum.sdf</uri><name>my_euca_redgum_8</name><pose>-12.903 0.53 5.46283 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_redgum.sdf</uri><name>my_euca_redgum_9</name><pose>58.77 -28.913 8 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_redgum.sdf</uri><name>my_euca_redgum_10</name><pose>23.288 -28.549 8 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_redgum.sdf</uri><name>my_euca_redgum_11</name><pose>12.883 -34.575 8 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_globulus.sdf</uri><name>my_euca_globulus</name><pose>69.4762 -32.6854 7 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_globulus.sdf</uri><name>my_euca_globulus_1</name><pose>73.4947 -31.3059 7.30009 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_globulus.sdf</uri><name>my_euca_globulus_1_1</name><pose>71.5518 -26.8893 6.68887 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_globulus.sdf</uri><name>my_euca_globulus_1_1_1</name><pose>63.6611 -25.0861 6.64783 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_globulus.sdf</uri><name>my_euca_globulus_1_1_2</name><pose>52.998 -32.381 6.218 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_globulus.sdf</uri><name>my_euca_globulus_2</name><pose>21.358 -22.2 5 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_globulus.sdf</uri><name>my_euca_globulus_3</name><pose>1.092 -16.368 5 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_globulus.sdf</uri><name>my_euca_globulus_4</name><pose>53.389 -16.164 3.712 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_globulus.sdf</uri><name>my_euca_globulus_5</name><pose>18 19.5 8 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_globulus.sdf</uri><name>my_euca_globulus_6</name><pose>33.477 35.378 9.145 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_globulus.sdf</uri><name>my_euca_globulus_7</name><pose>29.035 -3.377 4 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_globulus.sdf</uri><name>my_euca_globulus_8</name><pose>37.63 -18.748 3.829 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_globulus.sdf</uri><name>my_euca_globulus_9</name><pose>66.18 -6.952 4.3 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_globulus.sdf</uri><name>my_euca_globulus_10</name><pose>-1.295 14.543 7.3 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/Euca_globulus.sdf</uri><name>my_euca_globulus_11</name><pose>61.497 -9.589 4.2 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinaster.sdf</uri><name>my_pinus_pinaster</name><pose>7 18.2417 6.48795 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinaster.sdf</uri><name>my_pinus_pinaster_1</name><pose>11.6498 22.4133 6.48795 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinaster.sdf</uri><name>my_pinus_pinaster_2</name><pose>-5.88713 -27.6964 6.48795 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinaster.sdf</uri><name>my_pinus_pinaster_3</name><pose>2.87152 -25.7165 5.49625 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinaster.sdf</uri><name>my_pinus_pinaster_4</name><pose>-5.25035 -15.4343 2.84575 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinaster.sdf</uri><name>my_pinus_pinaster_5</name><pose>0.514878 -2.34477 1.85734 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinaster.sdf</uri><name>my_pinus_pinaster_6</name><pose>-4.54535 8.97084 3.59185 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinaster.sdf</uri><name>my_pinus_pinaster_7</name><pose>21.2545 15.0805 5.95974 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinaster.sdf</uri><name>my_pinus_pinaster_8</name><pose>11.0096 -13.9011 1.97495 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinaster.sdf</uri><name>my_pinus_pinaster_9</name><pose>6.72709 -7.19177 1.7893 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinaster.sdf</uri><name>my_pinus_pinaster_10</name><pose>18.531 -8.5736 0.121 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinaster.sdf</uri><name>my_pinus_pinaster_11</name><pose>21.4964 3.15272 2.08213 0 0 0.436103</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinaster.sdf</uri><name>my_pinus_pinaster_12</name><pose>26.1018 10.5035 3.76162 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinaster.sdf</uri><name>my_pinus_pinaster_13</name><pose>35.463 15.8 5.6958 0 0 -1.19676</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinaster.sdf</uri><name>my_pinus_pinaster_14</name><pose>44.5831 7.1589 3.11225 0 -0.117333 0.561469</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinaster.sdf</uri><name>my_pinus_pinaster_15</name><pose>30.6427 -1.71565 2.15145 0 0 -0.336636</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinaster.sdf</uri><name>my_pinus_pinaster_16</name><pose>1.56649 18.4228 5.79553 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinaster.sdf</uri><name>my_pinus_pinaster_17</name><pose>-0.789834 22.1788 6.17642 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinaster.sdf</uri><name>my_pinus_pinaster_18</name><pose>-12.1566 18.9015 5.13423 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinaster.sdf</uri><name>my_pinus_pinaster_19</name><pose>-7.14512 9.22985 2.93354 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinea.sdf</uri><name>my_pinus_pinea</name><pose>61.0085 19.3 4.7597 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinea.sdf</uri><name>my_pinus_pinea_1</name><pose>67.2703 -29.529 4.82081 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinea.sdf</uri><name>my_pinus_pinea_2</name><pose>75.144 -7.2203 4.1 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinea.sdf</uri><name>my_pinus_pinea_2_1</name><pose>70.303 -0.9368 3 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinea.sdf</uri><name>my_pinus_pinea_2_2</name><pose>73.326 4.7893 3.4 -0.148 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinea.sdf</uri><name>my_pinus_pinea_2_3</name><pose>62.81 -0.7066 1.783 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinea.sdf</uri><name>my_pinus_pinea_3</name><pose>47.55 34.165 4.95569 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinea.sdf</uri><name>my_pinus_pinea_4</name><pose>-3.217 29.795 6.4 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinea.sdf</uri><name>my_pinus_pinea_5</name><pose>38.97 21.042 6.2 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinea.sdf</uri><name>my_pinus_pinea_6</name><pose>39.723 -4.378 1.7 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinea.sdf</uri><name>my_pinus_pinea_7</name><pose>-6.317 -24.225 6.3 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinea.sdf</uri><name>my_pinus_pinea_8</name><pose>0.672 -21.677 5 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinea.sdf</uri><name>my_pinus_pinea_9</name><pose>56.817 27.7 5.6 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinea.sdf</uri><name>my_pinus_pinea_10</name><pose>1.736 -29.571 6 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/pinus_pinea.sdf</uri><name>my_pinus_pinea_11</name><pose>10.894 8.927 4.3 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/scot_pine.sdf</uri><name>my_scot_pine</name><pose>6.51222 5 2.54389 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/scot_pine.sdf</uri><name>my_scot_pine_1</name><pose>8.1 2.26237 1.90692 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/scot_pine.sdf</uri><name>my_scot_pine_2</name><pose>12.3189 0.999094 2.07876 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/scot_pine.sdf</uri><name>my_scot_pine_3</name><pose>-2.8 4.148 2.1 0.131 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/scot_pine.sdf</uri><name>my_scot_pine_4</name><pose>18.4681 1.69366 2.07897 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/scot_pine.sdf</uri><name>my_scot_pine_5</name><pose>11.2771 4.02233 2.54389 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/scot_pine.sdf</uri><name>my_scot_pine_6</name><pose>11.5026 -8.46648 1.89463 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/scot_pine.sdf</uri><name>my_scot_pine_7</name><pose>5.84244 -3.51387 1.93519 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/scot_pine.sdf</uri><name>my_scot_pine_8</name><pose>5.44765 0.701309 1.9119 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/scot_pine.sdf</uri><name>my_scot_pine_9</name><pose>17.441 -10.901 1.796 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/scot_pine.sdf</uri><name>my_scot_pine_10</name><pose>49.949 -4.5 1.7 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/scot_pine.sdf</uri><name>my_scot_pine_11</name><pose>24.958 -11.644 1.7 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/scot_pine.sdf</uri><name>my_scot_pine_12</name><pose>43.89 14.002 5.17 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/scot_pine.sdf</uri><name>my_scot_pine_13</name><pose>12.959 30.567 7.82 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/scot_pine.sdf</uri><name>my_scot_pine_14</name><pose>49.865 -18.605 1.9 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub</name><pose>42.5 -29.6 3.52 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_1</name><pose>9.753 -18.259 2.6 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_2</name><pose>51.282 15.752 5 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_3</name><pose>65.296 -28.48 4.819 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_4</name><pose>22.973 -32.765 4.5 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_5</name><pose>4.677 2.902 2 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_6</name><pose>-12.612 -20.087 4.8 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_7</name><pose>43.49 5.871 2.5 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_8</name><pose>4.84 9.195 4.3 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_9</name><pose>57.849 -34.513 4.2 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_10</name><pose>57.524 18.8 5.2 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_11</name><pose>15.623 -23.339 4.8 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_12</name><pose>71.149 -9.755 3 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_13</name><pose>-6.653 -27.746 6.5 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_14</name><pose>61.274 10.279 3.5 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_15</name><pose>33.261 35.5 7.4 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_16</name><pose>19.068 6.403 3.047 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_17</name><pose>48.411 -31.563 4.1 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_18</name><pose>5.511 -13.296 2.1 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_19</name><pose>-7.819 -17.541 4 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_20</name><pose>-5.91 -14.152 2.3 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_21</name><pose>38.9 -8.4 1.8 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_22</name><pose>18.316 -19.287 3 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_23</name><pose>9.028 35.249 7.3 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_24</name><pose>43.323 10.685 4.8 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_25</name><pose>0.402 19.685 6 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_26</name><pose>-0.294 -6.541 2 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_27</name><pose>74.057 13 3.2 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_28</name><pose>35.125 16.346 6.1 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_29</name><pose>60.857 23.2 5.6 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_30</name><pose>5.614 -32.592 5.4 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_31</name><pose>13.391 -14.919 2 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_32</name><pose>3.988 35.718 7 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_33</name><pose>63.873 -11.399 2.1 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_34</name><pose>43.989 -4.5 1.8 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_35</name><pose>67.309 -0.586 2.3 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_36</name><pose>35.523 -15.294 1.7 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_37</name><pose>37.613 32.337 7.5 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_38</name><pose>20.946 -18.551 2.6 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_39</name><pose>74.778 3.214 4.2 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_40</name><pose>-6.818 -31.466 6.6 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_41</name><pose>-5.132 12.058 4.7 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_42</name><pose>56.287 -5.8 1.92 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_43</name><pose>-9.283 -6.379 1.98941 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_44</name><pose>72.397 29.558 6.17 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_45</name><pose>-13.967 19.054 4.969 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_46</name><pose>46.354 5.273 2.2 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_47</name><pose>9.014 13.072 5.74 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_48</name><pose>-4.96 -2.393 2 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/shrub.sdf</uri><name>my_shrub_49</name><pose>25.835 36.536 7.3 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/tree_heather.sdf</uri><name>my_tree_heather</name><pose>63.827 -15.246 2.65 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/tree_heather.sdf</uri><name>my_tree_heather_1</name><pose>30.053 -21.601 2.8 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/tree_heather.sdf</uri><name>my_tree_heather_2</name><pose>67.137 30.289 6.5 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/tree_heather.sdf</uri><name>my_tree_heather_3</name><pose>11.86 12.921 6.1 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/tree_heather.sdf</uri><name>my_tree_heather_4</name><pose>41.6 -23.537 3 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/tree_heather.sdf</uri><name>my_tree_heather_5</name><pose>53.626 5.453 2.6 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/tree_heather.sdf</uri><name>my_tree_heather_6</name><pose>-14.949 -10.688 2.2415 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/tree_heather.sdf</uri><name>my_tree_heather_7</name><pose>-13.247 34.682 6.2 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/tree_heather.sdf</uri><name>my_tree_heather_8</name><pose>64.085 27.375 6.35 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/tree_heather.sdf</uri><name>my_tree_heather_9</name><pose>12.676 -30.656 5.4 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/tree_heather.sdf</uri><name>my_tree_heather_10</name><pose>64.59 34 6.3 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/tree_heather.sdf</uri><name>my_tree_heather_11</name><pose>-7.291 1.449 2.38 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/tree_heather.sdf</uri><name>my_tree_heather_12</name><pose>-8.771 22.045 6 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/tree_heather.sdf</uri><name>my_tree_heather_13</name><pose>53.925 -25.371 3.8 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/tree_heather.sdf</uri><name>my_tree_heather_14</name><pose>27.775 6.235 3.75 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/lavander.sdf</uri><name>my_lavander</name><pose>24.429 3.818 2.5 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/lavander.sdf</uri><name>my_lavander_1</name><pose>-4.11 -18.148 4.2 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/lavander.sdf</uri><name>my_lavander_2</name><pose>15.428 9.123 4.75 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/lavander.sdf</uri><name>my_lavander_3</name><pose>5.71 -18.484 3 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/lavander.sdf</uri><name>my_lavander_4</name><pose>-8.611 12.333 4.4 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/lavander.sdf</uri><name>my_lavander_5</name><pose>5.605 32.907 7.2 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/lavander.sdf</uri><name>my_lavander_6</name><pose>62.367 -29.686 4.4 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/lavander.sdf</uri><name>my_lavander_7</name><pose>6.42 15.173 6 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/lavander.sdf</uri><name>my_lavander_8</name><pose>4.281 -25.077 5 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/lavander.sdf</uri><name>my_lavander_9</name><pose>69.196 7.828 2.7 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/lavander.sdf</uri><name>my_lavander_10</name><pose>27.54 23.846 7.67 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/lavander.sdf</uri><name>my_lavander_11</name><pose>57.675 -20.719 2.5 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/lavander.sdf</uri><name>my_lavander_12</name><pose>-6.276 -2.671 2 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/lavander.sdf</uri><name>my_lavander_13</name><pose>23.122 0.027 2 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/lavander.sdf</uri><name>my_lavander_14</name><pose>50.617 15.502 5 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/ulex.sdf</uri><name>my_ulex</name><pose>7.483 34.245 7.4 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/ulex.sdf</uri><name>my_ulex_1</name><pose>24.882 29.601 8 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/ulex.sdf</uri><name>my_ulex_2</name><pose>34.529 -31.206 3.8 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/ulex.sdf</uri><name>my_ulex_3</name><pose>74.935 27.702 6.3 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/ulex.sdf</uri><name>my_ulex_4</name><pose>72.21 34.478 5.3 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/ulex.sdf</uri><name>my_ulex_5</name><pose>60 -22.527 3.2 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/ulex.sdf</uri><name>my_ulex_6</name><pose>28.708 -18.969 2.1 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/ulex.sdf</uri><name>my_ulex_7</name><pose>21.094 -30.602 4.7 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/ulex.sdf</uri><name>my_ulex_8</name><pose>19.108 35.9 7.7 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/ulex.sdf</uri><name>my_ulex_9</name><pose>8.868 23.805 7.1 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/ulex.sdf</uri><name>my_ulex_10</name><pose>25.951 -3.274 2.2 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/ulex.sdf</uri><name>my_ulex_11</name><pose>71.159 33 6 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/ulex.sdf</uri><name>my_ulex_12</name><pose>35.019 18.881 6.5 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/ulex.sdf</uri><name>my_ulex_13</name><pose>-1.068 -12.747 2 0 0 0</pose></include>
+    <include><uri>file:///tmp/build_ws/install/mini_bot_pkg/share/mini_bot_pkg/worlds/ulex.sdf</uri><name>my_ulex_14</name><pose>72.184 8.439 3 0 0 0</pose></include>
+    </world>
+</sdf>

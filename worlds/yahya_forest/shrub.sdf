@@ -1,0 +1,25 @@
+<sdf version="1.9">
+  <model name="shrub">
+    <static>true</static>
+    <link name="shrub_link">
+      <visual name="shrub_visual">
+        <geometry>
+          <mesh>
+            <uri>meshes/shrub/model.dae</uri>
+          </mesh>
+        </geometry>
+        <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label">
+          <label>6</label>
+        </plugin>
+      </visual>
+      <collision name="shrub_collision">
+        <geometry>
+          <box>
+            <size>1 1 1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+    <pose>0 0 0 0 0 0</pose>
+  </model>
+</sdf>

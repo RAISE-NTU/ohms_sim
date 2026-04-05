@@ -1,0 +1,326 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="terrain_forest">
+    <physics name="4ms" type="ignored">
+      <max_step_size>0.004</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <dart>
+        <collision_detector>bullet</collision_detector>
+        <solver>
+          <solver_type>pgs</solver_type>
+          <num_iterations>15</num_iterations>
+        </solver>
+      </dart>
+    </physics>
+
+    <plugin
+      filename="ignition-gazebo-physics-system"
+      name="ignition::gazebo::systems::Physics">
+    </plugin>
+    <plugin
+      filename="ignition-gazebo-sensors-system"
+      name="ignition::gazebo::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin
+      filename="ignition-gazebo-scene-broadcaster-system"
+      name="ignition::gazebo::systems::SceneBroadcaster">
+    </plugin>
+    <plugin
+      filename="ignition-gazebo-user-commands-system"
+      name="ignition::gazebo::systems::UserCommands">
+    </plugin>
+
+    <!-- imu plugin -->
+    <plugin
+      filename="libignition-gazebo-imu-system.so"
+      name="ignition::gazebo::systems::Imu">
+    </plugin>
+
+    <!--Comms emulator helper-->
+    <plugin
+      name='comms_emulator_helper_system::CommsEmulatorHelper'
+      filename='CommsEmulatorHelper'>
+    </plugin>
+
+    <light name="sun" type="directional">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <include>
+      <uri>model://shrub</uri>
+      <name>my_shrub</name>
+      <pose>1 2 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://euca_redgum</uri>
+      <name>my_euca_redgum</name>
+      <pose>61.886 -31.336 8.29128 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://tree_heather</uri>
+      <name>my_tree_heather</name>
+      <pose>4 4 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://euca_globulus</uri>
+      <name>my_euca_globulus</name>
+      <pose>69.4762 -32.6854 7.36711 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://terrain_forest</uri>
+      <name>my_map</name>
+      <pose>0 0 -2.62235 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://rocks</uri>
+      <name>my_rocks</name>
+      <pose>0 0 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://scot_pine</uri>
+      <name>my_scot_pine</name>
+      <pose>6.51222 5 2.54389 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinaster</uri>
+      <name>my_pinus_pinaster</name>
+      <pose>7 18.2417 6.48795 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://lavander</uri>
+      <name>my_lavander</name>
+      <pose>2 3 0 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinea</uri>
+      <name>my_pinus_pinea</name>
+      <pose>61.0085 16.6221 4.7597 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinea</uri>
+      <name>my_pinus_pinea_1</name>
+      <pose>67.2703 -29.529 4.82081 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinea</uri>
+      <name>my_pinus_pinea_2</name>
+      <pose>75.1441 -7.2203 4.62513 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinea</uri>
+      <name>my_pinus_pinea_2_1</name>
+      <pose>70.3032 -0.936819 4.62513 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinea</uri>
+      <name>my_pinus_pinea_2_2</name>
+      <pose>73.3262 4.73779 4.19084 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinea</uri>
+      <name>my_pinus_pinea_2_3</name>
+      <pose>62.8096 -0.706598 4.62513 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://euca_globulus</uri>
+      <name>my_euca_globulus_1</name>
+      <pose>73.4947 -31.3059 7.30009 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://euca_globulus</uri>
+      <name>my_euca_globulus_1_1</name>
+      <pose>71.5518 -26.8893 6.68887 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://euca_globulus</uri>
+      <name>my_euca_globulus_1_1_1</name>
+      <pose>63.6611 -25.0861 6.64783 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://euca_globulus</uri>
+      <name>my_euca_globulus_1_1_2</name>
+      <pose>52.9976 -32.381 6.68887 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://euca_redgum</uri>
+      <name>my_euca_redgum_1</name>
+      <pose>31.0433 -28.313 10.4715 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://euca_redgum</uri>
+      <name>my_euca_redgum_1_1</name>
+      <pose>44.3457 -37.7916 10.4715 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://euca_redgum</uri>
+      <name>my_euca_redgum_1_2</name>
+      <pose>48.731 -21.3818 10.4715 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://euca_redgum</uri>
+      <name>my_euca_redgum_1_3</name>
+      <pose>19.0879 -18.9277 8.88347 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinaster</uri>
+      <name>my_pinus_pinaster_1</name>
+      <pose>11.6498 22.4133 6.48795 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinaster</uri>
+      <name>my_pinus_pinaster_2</name>
+      <pose>-5.88713 -27.6964 6.48795 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinaster</uri>
+      <name>my_pinus_pinaster_3</name>
+      <pose>2.87152 -25.7165 5.49625 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinaster</uri>
+      <name>my_pinus_pinaster_4</name>
+      <pose>-5.25035 -15.4343 2.84575 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinaster</uri>
+      <name>my_pinus_pinaster_5</name>
+      <pose>0.514878 -2.34477 1.85734 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinaster</uri>
+      <name>my_pinus_pinaster_6</name>
+      <pose>-4.54535 8.97084 3.59185 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinaster</uri>
+      <name>my_pinus_pinaster_7</name>
+      <pose>21.2545 15.0805 5.95974 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinaster</uri>
+      <name>my_pinus_pinaster_8</name>
+      <pose>11.0096 -13.9011 1.97495 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinaster</uri>
+      <name>my_pinus_pinaster_9</name>
+      <pose>6.72709 -7.19177 1.7893 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinaster</uri>
+      <name>my_pinus_pinaster_10</name>
+      <pose>18.5307 -8.57356 6.48795 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinaster</uri>
+      <name>my_pinus_pinaster_11</name>
+      <pose>21.4964 3.15272 2.08213 0 -0 0.436103</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinaster</uri>
+      <name>my_pinus_pinaster_12</name>
+      <pose>26.1018 10.5035 3.76162 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinaster</uri>
+      <name>my_pinus_pinaster_13</name>
+      <pose>35.463 13.6367 5.6958 0 0 -1.19676</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinaster</uri>
+      <name>my_pinus_pinaster_14</name>
+      <pose>44.5831 7.1589 3.11225 -0 -0.117333 0.561469</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinaster</uri>
+      <name>my_pinus_pinaster_15</name>
+      <pose>30.6427 -1.71565 2.15145 0 0 -0.336636</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinaster</uri>
+      <name>my_pinus_pinaster_16</name>
+      <pose>1.56649 18.4228 5.79553 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinaster</uri>
+      <name>my_pinus_pinaster_17</name>
+      <pose>-0.789834 22.1788 6.17642 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinaster</uri>
+      <name>my_pinus_pinaster_18</name>
+      <pose>-12.1566 18.9015 5.13423 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://pinus_pinaster</uri>
+      <name>my_pinus_pinaster_19</name>
+      <pose>-7.14512 9.22985 2.93354 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://scot_pine</uri>
+      <name>my_scot_pine_1</name>
+      <pose>6.69658 2.26237 1.90692 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://scot_pine</uri>
+      <name>my_scot_pine_2</name>
+      <pose>12.3189 0.999094 2.07876 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://scot_pine</uri>
+      <name>my_scot_pine_3</name>
+      <pose>5.5358 4.1483 2.54389 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://scot_pine</uri>
+      <name>my_scot_pine_4</name>
+      <pose>18.4681 1.69366 2.07897 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://scot_pine</uri>
+      <name>my_scot_pine_5</name>
+      <pose>11.2771 4.02233 2.54389 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://scot_pine</uri>
+      <name>my_scot_pine_6</name>
+      <pose>11.5026 -8.46648 1.89463 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://scot_pine</uri>
+      <name>my_scot_pine_7</name>
+      <pose>5.84244 -3.51387 1.93519 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://scot_pine</uri>
+      <name>my_scot_pine_8</name>
+      <pose>5.44765 0.701309 1.9119 0 -0 0</pose>
+    </include>
+    <include>
+      <uri>model://scot_pine</uri>
+      <name>my_scot_pine_9</name>
+      <pose>17.441 -10.9009 2.54389 0 -0 0</pose>
+    </include>
+
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <world_frame_orientation>ENU</world_frame_orientation>
+      <latitude_deg>0.0</latitude_deg>
+      <longitude_deg>0.0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+
+  </world>
+</sdf>
